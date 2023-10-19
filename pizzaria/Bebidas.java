@@ -6,7 +6,7 @@ public class Bebidas {
     //atributos
     private String nome;
     private double valor;
-    private int quan;
+    private int quantidade;
 
     //getters and setters
     public Bebidas[] getLista() {
