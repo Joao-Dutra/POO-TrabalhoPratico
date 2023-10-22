@@ -1,12 +1,10 @@
-
 package pizzaria;
 
 import java.util.ArrayList;
 
 public class Gerente extends Funcionarios {
-    
-  private int senha;
-  private ArrayList<Funcionarios> funcionarios;
+
+    private int senha;
 
     public int getSenha() {
         return senha;
@@ -16,29 +14,38 @@ public class Gerente extends Funcionarios {
         this.senha = senha;
     }
 
-    public Gerente(int senha, ArrayList<Funcionarios> funcionarios, String cargo, double salario, String nome) {
+    public Gerente(int senha, ArrayList<Funcionarios> listaFuncionarios, String cargo, double salario, String nome) {
         super(cargo, salario, nome);
         this.senha = senha;
-        this.funcionarios = funcionarios;
-        
+
     }
 
     public Gerente() {
         super();
         this.senha = 0;
-        this.funcionarios = new ArrayList<>();
-        
+
     }
-    
-    
-      public void addFuncionario(String cargo, double salario, String nome) {
-        Funcionarios novoFuncionario = new Funcionarios(cargo, salario, nome);
-        funcionarios.add(novoFuncionario);
+
+    public void addFuncionario(ArrayList<Funcionarios> listaFuncionarios) {
+        Funcionarios novoFuncionario = new Funcionarios(this.getCargo(), this.getSalario(), this.getNome());
+        listaFuncionarios.add(novoFuncionario);
     }
-    
-    public void removerFuncionario(Funcionarios funcionario) {
-        funcionarios.remove(funcionario);
+
+    public void removerFuncionario(ArrayList<Funcionarios> listaFuncionarios, int index) {
+        listaFuncionarios.remove(index);
     }
-    
-    
+
+    public void listarFuncionarios(ArrayList<Funcionarios> listaFuncionarios) {
+        System.out.println("Lista de Funcionários do Gerente: ");
+        for (int index = 0; index < listaFuncionarios.size(); index++) {
+            System.out.println(listaFuncionarios.get(index));
+
+        }       
+
+    }
+    public String toString() {
+        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salário: R$" + this.getSalario());
+        return saida;
+    }
 }
+

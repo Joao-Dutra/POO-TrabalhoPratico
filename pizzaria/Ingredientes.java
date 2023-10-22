@@ -1,4 +1,4 @@
-package pizzaria2;
+package pizzaria;
 
 import java.util.ArrayList;
 
@@ -35,8 +35,8 @@ public class Ingredientes {
     }
 
     //metodos
-    public void addIngrediente(String nome, double valor, boolean extra, ArrayList<Ingredientes> listaIngredientes) {
-        Ingredientes aux = new Ingredientes(nome, valor, extra);
+    public void addIngrediente(ArrayList<Ingredientes> listaIngredientes) {
+        Ingredientes aux = new Ingredientes(this.nome, this.valor, this.extra);
         listaIngredientes.add(aux);
     }
 
@@ -58,8 +58,14 @@ public class Ingredientes {
     
     public void getListaIngredientes(ArrayList<Ingredientes> listaIngredientes){
         for (int index = 0; index < listaIngredientes.size(); index++) {
-            System.out.println(listaIngredientes.get(index));
+            System.out.println( index+1 + ". " + listaIngredientes.get(index));
         }
+    }
+    
+    public String toString(){
+        String saida;
+        saida = this.nome + " -  R$" + this.valor;      
+        return saida;        
     }
     /* 
     Ideia para botar estoque... 

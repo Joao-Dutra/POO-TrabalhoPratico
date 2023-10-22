@@ -1,4 +1,4 @@
-package pizzaria2;
+package pizzaria;
 
 import java.util.ArrayList;
 
@@ -35,8 +35,8 @@ public class Bebidas {
     }        
 
     //metodos
-    public void addIngrediente(String nome, double valor, String tamanho, ArrayList<Bebidas> listaBebidas) {
-        Bebidas aux = new Bebidas(nome, valor, tamanho);
+    public void addIngrediente(ArrayList<Bebidas> listaBebidas) {
+        Bebidas aux = new Bebidas(this.nome, this.valor, this.tamanho);
         listaBebidas.add(aux);
     }
 
@@ -72,13 +72,13 @@ public class Bebidas {
         this.nome = nome;
         switch(tamanho){
             case "Pequena": 
-                this.valor = valor + 2;
+                this.valor = valor;
                 break;
             case "Media":
-                this.valor = valor + 5;
+                this.valor = valor + 3;
                 break;
             case "Grande":
-                this.valor = valor + 9;
+                this.valor = valor + 7;
                 break;
         }
     }

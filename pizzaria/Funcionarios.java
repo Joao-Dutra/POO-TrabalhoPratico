@@ -1,8 +1,8 @@
-
 package pizzaria;
+
 public class Funcionarios {
 
-     //atributos
+    //atributos
     private String cargo;
     private double salario;
     private String nome;
@@ -45,6 +45,9 @@ public class Funcionarios {
         this.nome = null;
     }
 
-    //metodos                                                                                                                                                                                                                                                                                                                     
-
+    //metodos                
+    public String toString() {
+        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salário: R$" + this.getSalario());
+        return saida;
+    }
 }

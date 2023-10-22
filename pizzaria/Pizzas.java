@@ -1,4 +1,4 @@
-package pizzaria2;
+package pizzaria;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,7 @@ public class Pizzas {
     private String tamanho;
     private int quantidade;
     private boolean borda;
+    private Ingredientes inginseridos[] = new Ingredientes [7];
 
     //getter and setters
     public String getNome() {
@@ -43,7 +44,31 @@ public class Pizzas {
     public boolean isBorda() {
         return borda;
     }
+ // fazer uma variavel q controla o index dos ingredientes
+    public void addIngredientesPizza(Ingredientes ingredienteadicionado,int index){
+        if (index >= 0 && index < inginseridos.length) {
+            inginseridos[index] = ingredienteadicionado;
+        } else {
+            System.out.println("O limite de ingredientes foi atingido!");
+        }
+    }
+ // ficar esperto com o index + 1 por informar posicao   
+    public void removerIngredientesPizza(int index){
+        index += 1;
+        if(inginseridos[index] == null || index < 0 && index > inginseridos.length){
+            System.out.println("Ingrediente informado já foi removido ou posição informada não existe!");
+        }else{
+            inginseridos[index] = null;
+        }
+    }
 
+    public void getIngredientesInseridos(){
+        for (int index = 0; index < inginseridos.length; index++) {
+            System.out.println(inginseridos[index]);
+        }
+    }
+    
+    
     public void setBorda(boolean borda) {
         this.borda = borda;
     }
@@ -53,8 +78,8 @@ public class Pizzas {
     }
 
     //metodos
-    public void addPizzas(String nome, double valor, int quantidade, String tamanho, boolean borda, ArrayList<Pizzas> listaPizzas) {
-        Pizzas aux = new Pizzas(nome, valor, quantidade, tamanho, borda);
+    public void addPizzas(ArrayList<Pizzas> listaPizzas) {
+        Pizzas aux = new Pizzas(this.nome, this.valor, this.quantidade, this.tamanho, this.borda);
         listaPizzas.add(aux);
     }
 
@@ -105,6 +130,8 @@ public class Pizzas {
             this.valor += 5;
         }
     }
+    
+    //Fazer na main a logica de adicionar valor total de acordo com o ingrediente (valor ingrediente ) selecionado;
 
     public Pizzas() {
         this.nome = null;
