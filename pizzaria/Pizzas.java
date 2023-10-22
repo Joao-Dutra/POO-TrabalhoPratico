@@ -1,18 +1,19 @@
-package pizzaria;
+package pizzaria2;
+
+import java.util.ArrayList;
 
 public class Pizzas {
 
     //atributos
     private String nome;
     private double valor;
-    private boolean montar;
-    private boolean borda;
+    private String tamanho;
     private int quantidade;
-    private Ingredientes infoIngredientes;
+    private boolean borda;
 
-    //getters and setters
+    //getter and setters
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
@@ -20,63 +21,96 @@ public class Pizzas {
     }
 
     public double getValor() {
-        return this.valor;
+        return valor;
     }
 
     public void setValor(double valor) {
         this.valor = valor;
     }
 
-    public boolean isMontar() {
-        return this.montar;
-    }
-
-    public void setMontar(boolean montar) {
-        this.montar = montar;
-    }
-
-    public boolean isBorda() {
-        return this.borda;
-    }
-
-    public void setBorda(boolean borda) {
-        this.borda = borda;
-    }
-
     public int getQuantidade() {
-        return this.quantidade;
+        return quantidade;
     }
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
-    public Ingredientes getInfoIngredientes() {
-        return this.infoIngredientes;
+    public String getTamanho() {
+        return tamanho;
     }
 
-    public void setInfoIngredientes(Ingredientes infoIngredientes) {
-        this.infoIngredientes = infoIngredientes;
+    public boolean isBorda() {
+        return borda;
     }
 
-    //construtores
-    public Pizzas(String nome, double valor, boolean montar, boolean borda, int quantidade, Ingredientes infoIngredientes) {
-        this.nome = nome;
-        this.valor = valor;
-        this.montar = montar;
+    public void setBorda(boolean borda) {
         this.borda = borda;
-        this.quantidade = quantidade;
-        this.infoIngredientes = infoIngredientes;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    //metodos
+    public void addPizzas(String nome, double valor, int quantidade, String tamanho, boolean borda, ArrayList<Pizzas> listaPizzas) {
+        Pizzas aux = new Pizzas(nome, valor, quantidade, tamanho, borda);
+        listaPizzas.add(aux);
+    }
+
+    public void removerPizzas(ArrayList<Pizzas> listaPizzas, int index) {
+        if (index >= 0 && index < listaPizzas.size()) {
+            listaPizzas.remove(index);
+        } else {
+            System.out.println("O indice especificado e invalido!");
+        }
+    }
+
+    public void getPizzas(ArrayList<Pizzas> listaPizzas, int index) {
+        if (index >= 0 && index < listaPizzas.size()) {
+            System.out.println(listaPizzas.get(index));
+        } else {
+            System.out.println("O indice especificado e invalido!");
+        }
+    }
+
+    public void getListaPizzas(ArrayList<Pizzas> listaPizzas) {
+        for (int index = 0; index < listaPizzas.size(); index++) {
+            System.out.println(listaPizzas.get(index));
+        }
+    }
+
+    /* 
+    Ideia para botar estoque... 
+    implementar mais pra frente?!
+     */
+    //construtores
+    public Pizzas(String nome, double valor, int quantidade, String tamanho,boolean borda) {
+        this.nome = nome;
+        switch (tamanho) {
+            case "Pequena":
+                this.valor = 30;
+                break;
+            case "Media":
+                this.valor = 45;
+                break;
+            case "Grande":
+                this.valor = 60;
+                break;
+        }
+        if (quantidade != 1) {
+            this.valor = this.valor * quantidade;
+        }
+        if(borda){
+            this.valor += 5;
+        }
     }
 
     public Pizzas() {
         this.nome = null;
         this.valor = 0;
-        this.montar = false;
-        this.borda = false;
         this.quantidade = 0;
-        this.infoIngredientes = null;
+        this.tamanho = null;
+        this.borda = false;
     }
-
-    //metodos
 }

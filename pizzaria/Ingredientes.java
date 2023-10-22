@@ -1,24 +1,17 @@
-package pizzaria;
+package pizzaria2;
+
+import java.util.ArrayList;
 
 public class Ingredientes {
 
-    private Ingredientes lista[] = new Ingredientes[16];
     //atributos
     private String nome;
     private double valor;
-    private boolean quantExtra;
+    private boolean extra;
 
     //getters and setters
-    public Ingredientes[] getLista() {
-        return this.lista;
-    }
-
-    public void setLista(Ingredientes[] lista) {
-        this.lista = lista;
-    }
-
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
@@ -26,33 +19,67 @@ public class Ingredientes {
     }
 
     public double getValor() {
-        return this.valor;
+        return valor;
     }
 
     public void setValor(double valor) {
         this.valor = valor;
     }
 
-    public boolean isQuantExtra() {
-        return this.quantExtra;
+    public boolean isExtra() {
+        return extra;
     }
 
-    public void setQuantExtra(boolean quantExtra) {
-        this.quantExtra = quantExtra;
+    public void setExtra(boolean extra) {
+        this.extra = extra;
     }
 
+    //metodos
+    public void addIngrediente(String nome, double valor, boolean extra, ArrayList<Ingredientes> listaIngredientes) {
+        Ingredientes aux = new Ingredientes(nome, valor, extra);
+        listaIngredientes.add(aux);
+    }
+
+    public void removerIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
+        if (index >= 0 && index < listaIngredientes.size()) {
+            listaIngredientes.remove(index);
+        } else {
+            System.out.println("O indice especificado e invalido!");
+        }
+    }
+
+    public void getIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
+        if (index >= 0 && index < listaIngredientes.size()) {
+            System.out.println(listaIngredientes.get(index));
+        } else {
+            System.out.println("O indice especificado e invalido!");
+        }
+    }
+    
+    public void getListaIngredientes(ArrayList<Ingredientes> listaIngredientes){
+        for (int index = 0; index < listaIngredientes.size(); index++) {
+            System.out.println(listaIngredientes.get(index));
+        }
+    }
+    /* 
+    Ideia para botar estoque... 
+    implementar mais pra frente?!
+    */
+    
     //construtores
-    public Ingredientes(String nome, double valor, boolean quantExtra) {
+
+    public Ingredientes(String nome, double valor,boolean extra) {
         this.nome = nome;
-        this.valor = valor;
-        this.quantExtra = quantExtra;
+        if (extra) {
+            this.valor = valor*2;
+        }else{
+            this.valor = valor;
+        }
     }
 
     public Ingredientes() {
         this.nome = null;
         this.valor = 0;
-        this.quantExtra = false;
+        this.extra = false;
     }
-    //metodos
-
 }
