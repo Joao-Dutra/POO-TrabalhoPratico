@@ -1,8 +1,8 @@
-package pizzaria;
 
+package pizzaria;
 public class Funcionarios {
 
-    //atributos
+     //atributos
     private String cargo;
     private double salario;
     private String nome;
@@ -46,15 +46,5 @@ public class Funcionarios {
     }
 
     //metodos                                                                                                                                                                                                                                                                                                                     
-    public Funcionarios addFuncionario(String cargo, double salario, String nome) {
-        Funcionarios novofuncionario = new Funcionarios(cargo, salario, nome);
-        return novofuncionario;
-    }
-
-    public void removerFuncionario() {
-        this.cargo = null;
-        this.salario = 0;
-        this.nome = null;
-    }
 
 }
