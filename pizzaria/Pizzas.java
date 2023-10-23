@@ -77,7 +77,7 @@ public class Pizzas {
 
     public static void getPizzas(ArrayList<Pizzas> listaPizzas, int index) {
         if (index >= 0 && index < listaPizzas.size()) {
-            System.out.println(listaPizzas.get(index));
+            System.out.println((index+1) + ". " +listaPizzas.get(index));
         } else {
             System.out.println("O indice especificado e invalido!");
         }
@@ -87,7 +87,7 @@ public class Pizzas {
         String saida = "";
 
         for (int index = 0; index < listaPizzas.size(); index++) {
-            saida += listaPizzas.get(index);
+            saida += (index+1) + ". " +listaPizzas.get(index);
         }
 
         return saida;
@@ -114,7 +114,7 @@ public class Pizzas {
         }
     }
 
-    public void getIngredientesInseridos() {
+    public void getListaIngredientesInseridos() {
         for (int index = 0; index < inginseridos.length; index++) {
             if (inginseridos[index] == null) {
                 System.out.println("Espaco Vazio");
@@ -124,24 +124,18 @@ public class Pizzas {
         }
     }
 
+    public void getIngredientesInseridos(int index) {
+        if (inginseridos[index] == null) {
+            System.out.println("Espaco Vazio");
+        } else {
+            System.out.println(inginseridos[index]);
+        }
+    }
+
     public String toString() {
         String saida = "";
-        double totalIngredientes = 0;
-        for (int index = 0; index < inginseridos.length; index++ ) {
-            if (inginseridos[index] != null) {
-                totalIngredientes += inginseridos[index].getValor();
-            }
-        }
-        saida += this.nome + ":\nP " + (30 + totalIngredientes)
-                + " M " + (45 + totalIngredientes)
-                + " G " + (60 + totalIngredientes)
-                + "\nIngredientes: ";
-        for (int index = 0; index < inginseridos.length; index++ ) {
-            if (inginseridos[index] != null) {
-                saida += inginseridos[index].getNome() + " - ";
 
-            }
-        }
+        saida += this.nome;
 
         return saida;
     }

@@ -58,9 +58,7 @@ public class Pizzaria {
         Teste.addPizzas(listaPizzas,"Margarida",1,"Pequena",false);
         Teste.addIngredientesPizza(FrangoDesfiado, 0);
         Teste.addIngredientesPizza(Catupiry, 1);
-                                   
-        System.out.println(Pizzas.getListaPizzas(listaPizzas));
-        System.out.println(Teste.getInginseridos());
+                                          
         
         System.out.println("|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n" +
                            "|\\\\\\\\                                                                                      \\\\\\\\|\n" +
@@ -85,15 +83,60 @@ public class Pizzaria {
 
         switch (comando) {
             case 1:
-                Pedidos x = new Pedidos();
-                x.addBebidasPedido(VinhoTaca);
-                x.addBebidasPedido(AguaMineral);
-                x.addPizzasPedido(Teste);
-                
+                System.out.println(""
+                        + "\n"
+                        + "                       EXCELLENCE MENU\n"
+                        + "\n"
+                        + "      ---------------------------------------------------\n"
+                        + "\n"
+                        + "              \n"
+                        + "\n"
+                        + "                           PIZZAS\n"
+                        + "\n"
+                        + "  1. Margherita:\n"
+                        + "     P R$37 - M R$52 - G R$67: \n"
+                        + "     Manjericão fresco, Mussarela.\n"
+                        + "\n"
+                        + "  2. Pepperoni:\n"
+                        + "     P R$38 - M R$53 - G R$68:\n"
+                        + "     Pepperoni, Mussarela.\n"
+                        + "\n"
+                        + "  3. Calabresa:\n"
+                        + "     P R$40 - M R$55 - G R$70:\n"
+                        + "     Calabresa fatiada, Cebola, Mussarela.\n"
+                        + "\n"
+                        + "  4. Vegetariana:\n"
+                        + "     P R$43 - M R$58 - G 73: \n"
+                        + "     Cogumelos, Pimentões, Cebola, Azeitonas pretas, \n"
+                        + "     Mussarela.\n"
+                        + "\n"
+                        + "  5. Frango com Catupiry:\n"
+                        + "     P R$43 - M R$58 - G R$73:\n"
+                        + "     Frango desfiado, Catupiry, Milho, Mussarela.\n"
+                        + "\n"
+                        + "  6. Pizza Brasileira:\n"
+                        + "     P R$43 - M R$58 - G R$73: \n"
+                        + "     Carne-seca desfiada, Cebola roxa, Catupiry,\n"
+                        + "     Mussarela.\n"
+                        + "\n"
+                        + "  7. Quatro Queijos:\n"
+                        + "     P R$44 - M R$59 - G R$74: \n"
+                        + "     Gorgonzola, Parmesão, Provolone, Mussarela.\n"
+                        + "\n"
+                        + "  8. Pizza do Chef:\n"
+                        + "     P R$46 - M R$61 - G R$76: \n"
+                        + "     Pepperoni, Cogumelos, Pimentões, Cebola roxa, \n"
+                        + "     Azeitonas pretas, Mussarela.\n"
+                        + "     \n"
+                        + "     ---------------------------------------------------\n\n "
+                        + "  Digite o numero correspondente de alguma pizza para solicitala!\n"
+                        + "     ------------------------ OU -----------------------\n"
+                        + "   Digite 9 para montar sua propria pizza com até 7 ingredientes!");
+                comando = entrada.nextInt();
                 break;
             case 2:
                 break;
         }
-        
+
     }
 }
