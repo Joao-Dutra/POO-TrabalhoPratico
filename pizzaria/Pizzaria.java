@@ -15,13 +15,13 @@ public class Pizzaria {
         listaIngredientes.add(MolhoDeTomate);
         Ingredientes Mussarela = new Ingredientes("Mussarela", 2.50, false);
         listaIngredientes.add(Mussarela);
-        Ingredientes ManjericaoFresco = new Ingredientes("Manjeric„o Fresco", 2.00, false);
+        Ingredientes ManjericaoFresco = new Ingredientes("Manjeric√£o Fresco", 2.00, false);
         listaIngredientes.add(ManjericaoFresco);
         Ingredientes Pepperoni = new Ingredientes("Pepperoni", 3.00, false);
         listaIngredientes.add(Pepperoni);
         Ingredientes Gorgonzola = new Ingredientes("Gorgonzola", 3.00, false);
         listaIngredientes.add(Gorgonzola);
-        Ingredientes Parmesao = new Ingredientes("Parmes„o", 3.00, false);
+        Ingredientes Parmesao = new Ingredientes("Parmes√£o", 3.00, false);
         listaIngredientes.add(Parmesao);
         Ingredientes Provolone = new Ingredientes("Provolone", 3.00, false);
         listaIngredientes.add(Provolone);
@@ -29,7 +29,7 @@ public class Pizzaria {
         listaIngredientes.add(CalabresaFatiada);
         Ingredientes Cebola = new Ingredientes("Cebola", 2.00, false);
         listaIngredientes.add(Cebola);
-        Ingredientes Pimentoes = new Ingredientes("Pimentıes", 2.00, false);
+        Ingredientes Pimentoes = new Ingredientes("Piment√µes", 2.00, false);
         listaIngredientes.add(Pimentoes);
         Ingredientes AzeitonasPretas = new Ingredientes("Azeitonas Pretas", 2.00, false);
         listaIngredientes.add(AzeitonasPretas);
@@ -45,15 +45,15 @@ public class Pizzaria {
         listaIngredientes.add(CebolaRoxa);
         
         
-        Bebidas AguaMineral = new Bebidas("¡gua Mineral (500ml)", 3.50, "500ml");
+        Bebidas AguaMineral = new Bebidas("√Ågua Mineral (500ml)", 3.50, "500ml");
         listaBebidas.add(AguaMineral);
         Bebidas Refrigerante = new Bebidas("Refrigerante (6000ml)", 4.50, "6000ml");
         listaBebidas.add(Refrigerante);
         Bebidas SucoNatural = new Bebidas("Suco Natural (600ml)", 4.00, "600ml");
         listaBebidas.add(SucoNatural);
-        Bebidas VinhoTaca = new Bebidas("Vinho (TaÁa)", 9.00, "Taca");
+        Bebidas VinhoTaca = new Bebidas("Vinho (Ta√ßa)", 9.00, "Taca");
         listaBebidas.add(VinhoTaca);
-        
+        //resolver isso ai abaixo
         Pizzas Teste = new Pizzas();
         Teste.addPizzas(listaPizzas,"Margarida",1,"Pequena",false);
         Teste.addIngredientesPizza(FrangoDesfiado, 0);
@@ -95,7 +95,7 @@ public class Pizzaria {
                         + "\n"
                         + "  1. Margherita:\n"
                         + "     P R$37 - M R$52 - G R$67: \n"
-                        + "     Manjeric„o fresco, Mussarela.\n"
+                        + "     Manjeric√£o fresco, Mussarela.\n"
                         + "\n"
                         + "  2. Pepperoni:\n"
                         + "     P R$38 - M R$53 - G R$68:\n"
@@ -107,7 +107,7 @@ public class Pizzaria {
                         + "\n"
                         + "  4. Vegetariana:\n"
                         + "     P R$43 - M R$58 - G 73: \n"
-                        + "     Cogumelos, Pimentıes, Cebola, Azeitonas pretas, \n"
+                        + "     Cogumelos, Piment√µes, Cebola, Azeitonas pretas, \n"
                         + "     Mussarela.\n"
                         + "\n"
                         + "  5. Frango com Catupiry:\n"
@@ -121,17 +121,17 @@ public class Pizzaria {
                         + "\n"
                         + "  7. Quatro Queijos:\n"
                         + "     P R$44 - M R$59 - G R$74: \n"
-                        + "     Gorgonzola, Parmes„o, Provolone, Mussarela.\n"
+                        + "     Gorgonzola, Parmes√£o, Provolone, Mussarela.\n"
                         + "\n"
                         + "  8. Pizza do Chef:\n"
                         + "     P R$46 - M R$61 - G R$76: \n"
-                        + "     Pepperoni, Cogumelos, Pimentıes, Cebola roxa, \n"
+                        + "     Pepperoni, Cogumelos, Piment√µes, Cebola roxa, \n"
                         + "     Azeitonas pretas, Mussarela.\n"
                         + "     \n"
                         + "     ---------------------------------------------------\n\n "
                         + "  Digite o numero correspondente de alguma pizza para solicitala!\n"
                         + "     ------------------------ OU -----------------------\n"
-                        + "   Digite 9 para montar sua propria pizza com atÈ 7 ingredientes!");
+                        + "   Digite 9 para montar sua propria pizza com at√© 7 ingredientes!");
                 comando = entrada.nextInt();
                 break;
             case 2:
