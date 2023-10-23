@@ -36,7 +36,7 @@ public class Gerente extends Funcionarios {
     }
 
     public void listarFuncionarios(ArrayList<Funcionarios> listaFuncionarios) {
-        System.out.println("Lista de Funcionários do Gerente: ");
+        System.out.println("Lista de Funcionarios do Gerente: ");
         for (int index = 0; index < listaFuncionarios.size(); index++) {
             System.out.println(listaFuncionarios.get(index));
 
@@ -44,7 +44,7 @@ public class Gerente extends Funcionarios {
 
     }
     public String toString() {
-        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salário: R$" + this.getSalario());
+        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salario: R$" + this.getSalario());
         return saida;
     }
 }

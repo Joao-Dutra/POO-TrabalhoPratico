@@ -48,7 +48,7 @@ public class Ingredientes {
         }
     }
 
-    public void getIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
+    public static void getIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
         if (index >= 0 && index < listaIngredientes.size()) {
             System.out.println(listaIngredientes.get(index));
         } else {
@@ -56,7 +56,7 @@ public class Ingredientes {
         }
     }
     
-    public void getListaIngredientes(ArrayList<Ingredientes> listaIngredientes){
+    public static void getListaIngredientes(ArrayList<Ingredientes> listaIngredientes){
         for (int index = 0; index < listaIngredientes.size(); index++) {
             System.out.println( index+1 + ". " + listaIngredientes.get(index));
         }

@@ -32,10 +32,10 @@ public class Bebidas {
 
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
-    }        
+    }
 
     //metodos
-    public void addIngrediente(ArrayList<Bebidas> listaBebidas) {
+    public void addBebidase(ArrayList<Bebidas> listaBebidas) {
         Bebidas aux = new Bebidas(this.nome, this.valor, this.tamanho);
         listaBebidas.add(aux);
     }
@@ -48,30 +48,36 @@ public class Bebidas {
         }
     }
 
-    public void getBebidas(ArrayList<Bebidas> listaBebidas, int index) {
+    public static void getBebidas(ArrayList<Bebidas> listaBebidas, int index) {
         if (index >= 0 && index < listaBebidas.size()) {
             System.out.println(listaBebidas.get(index));
         } else {
             System.out.println("O indice especificado e invalido!");
         }
     }
-    
-    public void getListaBebidas(ArrayList<Bebidas> listaBebidas){
+
+    public static void getListaBebidas(ArrayList<Bebidas> listaBebidas) {
         for (int index = 0; index < listaBebidas.size(); index++) {
             System.out.println(listaBebidas.get(index));
         }
     }
+
+    public String toString() {
+        String saida;
+        saida = this.nome + " -  R$" + this.valor + " - " + this.tamanho;
+        return saida;
+    }
+
     /* 
     Ideia para botar estoque... 
     implementar mais pra frente?!
-    */
-    
-    //construtores
+     */
 
-    public Bebidas(String nome, double valor,String tamanho) {
+    //construtores
+    public Bebidas(String nome, double valor, String tamanho) {
         this.nome = nome;
-        switch(tamanho){
-            case "Pequena": 
+        switch (tamanho) {
+            case "Pequena":
                 this.valor = valor;
                 break;
             case "Media":

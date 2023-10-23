@@ -11,6 +11,56 @@ public class Pizzaria {
     static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
     public static void main(String[] args) {
        
+        Ingredientes MolhoDeTomate = new Ingredientes("Molho de Tomate", 2.50, false);
+        listaIngredientes.add(MolhoDeTomate);
+        Ingredientes Mussarela = new Ingredientes("Mussarela", 2.50, false);
+        listaIngredientes.add(Mussarela);
+        Ingredientes ManjericaoFresco = new Ingredientes("Manjericão Fresco", 2.00, false);
+        listaIngredientes.add(ManjericaoFresco);
+        Ingredientes Pepperoni = new Ingredientes("Pepperoni", 3.00, false);
+        listaIngredientes.add(Pepperoni);
+        Ingredientes Gorgonzola = new Ingredientes("Gorgonzola", 3.00, false);
+        listaIngredientes.add(Gorgonzola);
+        Ingredientes Parmesao = new Ingredientes("Parmesão", 3.00, false);
+        listaIngredientes.add(Parmesao);
+        Ingredientes Provolone = new Ingredientes("Provolone", 3.00, false);
+        listaIngredientes.add(Provolone);
+        Ingredientes CalabresaFatiada = new Ingredientes("Calabresa Fatiada", 2.00, false);
+        listaIngredientes.add(CalabresaFatiada);
+        Ingredientes Cebola = new Ingredientes("Cebola", 2.00, false);
+        listaIngredientes.add(Cebola);
+        Ingredientes Pimentoes = new Ingredientes("Pimentões", 2.00, false);
+        listaIngredientes.add(Pimentoes);
+        Ingredientes AzeitonasPretas = new Ingredientes("Azeitonas Pretas", 2.00, false);
+        listaIngredientes.add(AzeitonasPretas);
+        Ingredientes FrangoDesfiado = new Ingredientes("Frango Desfiado", 3.00, false);
+        listaIngredientes.add(FrangoDesfiado);
+        Ingredientes Catupiry = new Ingredientes("Catupiry", 3.00, false);
+        listaIngredientes.add(Catupiry);
+        Ingredientes Milho = new Ingredientes("Milho", 2.00, false);
+        listaIngredientes.add(Milho);
+        Ingredientes CarneSecaDesfiada = new Ingredientes("Carne-Seca Desfiada", 3.00, false);
+        listaIngredientes.add(CarneSecaDesfiada);
+        Ingredientes CebolaRoxa = new Ingredientes("Cebola Roxa", 2.00, false);
+        listaIngredientes.add(CebolaRoxa);
+        
+        
+        Bebidas AguaMineral = new Bebidas("Água Mineral (500ml)", 3.50, "500ml");
+        listaBebidas.add(AguaMineral);
+        Bebidas Refrigerante = new Bebidas("Refrigerante (6000ml)", 4.50, "6000ml");
+        listaBebidas.add(Refrigerante);
+        Bebidas SucoNatural = new Bebidas("Suco Natural (600ml)", 4.00, "600ml");
+        listaBebidas.add(SucoNatural);
+        Bebidas VinhoTaca = new Bebidas("Vinho (Taça)", 9.00, "Taca");
+        listaBebidas.add(VinhoTaca);
+        
+        Pizzas Teste = new Pizzas();
+        Teste.addPizzas(listaPizzas,"Margarida",1,"Pequena",false);
+        Teste.addIngredientesPizza(FrangoDesfiado, 0);
+        Teste.addIngredientesPizza(Catupiry, 1);
+                                   
+        System.out.println(Pizzas.getListaPizzas(listaPizzas));
+        System.out.println(Teste.getInginseridos());
         
         System.out.println("|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n" +
                            "|\\\\\\\\                                                                                      \\\\\\\\|\n" +
@@ -36,25 +86,14 @@ public class Pizzaria {
         switch (comando) {
             case 1:
                 Pedidos x = new Pedidos();
-                System.out.println("Você recebeu um cardapio de um carismatico garçom : ");
-
+                x.addBebidasPedido(VinhoTaca);
+                x.addBebidasPedido(AguaMineral);
+                x.addPizzasPedido(Teste);
+                
                 break;
             case 2:
                 break;
         }
-
-
-        Ingredientes i1 = new Ingredientes("Molho", 2, false);
-        Ingredientes i2 = new Ingredientes("Mussarela", 3, true);
-        i1.addIngrediente(listaIngredientes);
-        i2.addIngrediente(listaIngredientes);
-        i1.getListaIngredientes(listaIngredientes);
-        
-        Gerente g1 = new Gerente(1234,listaFuncionarios,"teste",2.000,"Roberto");
-        Gerente g2 = new Gerente(2345,listaFuncionarios,"garçom",3.000,"Romeu");
-        g1.addFuncionario(listaFuncionarios);
-        g2.addFuncionario(listaFuncionarios);
-        g1.listarFuncionarios(listaFuncionarios);
         
     }
 }
