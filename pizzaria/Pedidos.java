@@ -25,7 +25,7 @@ public class Pedidos {
 
     // FAZER INDEX POSIÇÃO E CUIDADO COM O INDEX + 1
     public void removerPizzasPedido(int index) {
-        index -= 1;
+        index += 1;
 
         if (index >= 0 && index < listaPizzasPedido.size()) {
             listaPizzasPedido.remove(index);
@@ -35,7 +35,7 @@ public class Pedidos {
     }
 
     public void removerBebidaPedido(int index) {
-        index -= 1;
+        index += 1;
 
         if (index >= 0 && index < listaBebidasPedido.size()) {
             listaBebidasPedido.remove(index);

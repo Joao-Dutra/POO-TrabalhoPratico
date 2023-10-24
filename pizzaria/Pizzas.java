@@ -52,21 +52,8 @@ public class Pizzas {
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
-
-    public Ingredientes[] getInginseridos() {
-        return inginseridos;
-    }
-
-    public void setInginseridos(Ingredientes[] inginseridos) {
-        this.inginseridos = inginseridos;
-    }
-
+    
     //metodos
-    public void addPizzas(ArrayList<Pizzas> listaPizzas, String nome, int quantidade, String tamanho, boolean borda) {
-        Pizzas aux = new Pizzas(nome, quantidade, tamanho, borda);
-        listaPizzas.add(aux);
-    }
-
     public void removerPizzas(ArrayList<Pizzas> listaPizzas, int index) {
         if (index >= 0 && index < listaPizzas.size()) {
             listaPizzas.remove(index);
@@ -77,27 +64,24 @@ public class Pizzas {
 
     public static void getPizzas(ArrayList<Pizzas> listaPizzas, int index) {
         if (index >= 0 && index < listaPizzas.size()) {
-            System.out.println((index+1) + ". " +listaPizzas.get(index));
+            System.out.println((index + 1) + ". " + listaPizzas.get(index));
         } else {
             System.out.println("O indice especificado e invalido!");
         }
     }
 
-    public static String getListaPizzas(ArrayList<Pizzas> listaPizzas) {
-        String saida = "";
+    public static void getListaPizzas(ArrayList<Pizzas> listaPizzas) {
 
         for (int index = 0; index < listaPizzas.size(); index++) {
-            saida += (index+1) + ". " +listaPizzas.get(index);
+            System.out.println((index + 1) + ". " + listaPizzas.get(index));
         }
 
-        return saida;
     }
     // fazer uma variavel q controla o index dos ingredientes
 
     public void addIngredientesPizza(Ingredientes ingredienteadicionado, int index) {
         if (index >= 0 && index < inginseridos.length) {
             inginseridos[index] = ingredienteadicionado;
-            this.valor += ingredienteadicionado.getValor();
         } else {
             System.out.println("O limite de ingredientes foi atingido!");
         }
@@ -105,12 +89,11 @@ public class Pizzas {
     // ficar esperto com o index + 1 por informar posicao   
 
     public void removerIngredientesPizza(int index) {
-        index -= 1;
+        index += 1;
         if (inginseridos[index] == null || index < 0 && index > inginseridos.length) {
             System.out.println("Ingrediente informado ja foi removido ou posicao informada nao existe!");
         } else {
             inginseridos[index] = null;
-            this.valor -= inginseridos[index].getValor();
         }
     }
 
@@ -139,13 +122,9 @@ public class Pizzas {
 
         return saida;
     }
-
-    /*
-    Ideia para botar estoque... 
-    implementar mais pra frente?!
-     */
+    
     //construtores    
-    public Pizzas(String nome, int quantidade, String tamanho, boolean borda) {
+    public Pizzas(String nome, int quantidade, String tamanho, boolean borda, ArrayList<Pizzas> listaPizzas) {
         this.nome = nome;
         this.tamanho = tamanho;
         this.borda = borda;
@@ -168,6 +147,7 @@ public class Pizzas {
             this.valor += 5;
         }
         this.inginseridos = new Ingredientes[7];
+        listaPizzas.add(this);
     }
 
     public Pizzas() {

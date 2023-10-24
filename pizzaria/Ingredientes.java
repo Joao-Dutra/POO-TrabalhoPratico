@@ -7,7 +7,6 @@ public class Ingredientes {
     //atributos
     private String nome;
     private double valor;
-    private boolean extra;
 
     //getters and setters
     public String getNome() {
@@ -26,18 +25,9 @@ public class Ingredientes {
         this.valor = valor;
     }
 
-    public boolean isExtra() {
-        return extra;
-    }
-
-    public void setExtra(boolean extra) {
-        this.extra = extra;
-    }
-
     //metodos
-    public void addIngrediente(ArrayList<Ingredientes> listaIngredientes) {
-        Ingredientes aux = new Ingredientes(this.nome, this.valor, this.extra);
-        listaIngredientes.add(aux);
+    private void addIngrediente(ArrayList<Ingredientes> listaIngredientes) {
+        listaIngredientes.add(this);
     }
 
     public void removerIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
@@ -74,18 +64,13 @@ public class Ingredientes {
     
     //construtores
 
-    public Ingredientes(String nome, double valor,boolean extra) {
+    public Ingredientes(String nome, double valor,ArrayList<Ingredientes> listaIngredientes) {
         this.nome = nome;
-        if (extra) {
-            this.valor = valor*2;
-        }else{
-            this.valor = valor;
-        }
+        listaIngredientes.add(this);
     }
 
     public Ingredientes() {
         this.nome = null;
         this.valor = 0;
-        this.extra = false;
     }
 }

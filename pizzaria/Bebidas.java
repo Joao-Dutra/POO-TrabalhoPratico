@@ -35,11 +35,6 @@ public class Bebidas {
     }
 
     //metodos
-    public void addBebidase(ArrayList<Bebidas> listaBebidas) {
-        Bebidas aux = new Bebidas(this.nome, this.valor, this.tamanho);
-        listaBebidas.add(aux);
-    }
-
     public void removerBebidas(ArrayList<Bebidas> listaBebidas, int index) {
         if (index >= 0 && index < listaBebidas.size()) {
             listaBebidas.remove(index);
@@ -67,16 +62,12 @@ public class Bebidas {
         saida = this.nome + " -  R$" + this.valor + " - " + this.tamanho;
         return saida;
     }
-
-    /* 
-    Ideia para botar estoque... 
-    implementar mais pra frente?!
-     */
-
     //construtores
-    public Bebidas(String nome, double valor, String tamanho) {
+    public Bebidas(String nome, double valor, String tamanho,ArrayList<Bebidas> listaBebidas) {
         this.nome = nome;
-        switch (tamanho) {
+        this.tamanho = tamanho;
+        this.valor = valor;
+        switch (this.tamanho) {
             case "Pequena":
                 this.valor = valor;
                 break;
@@ -87,6 +78,7 @@ public class Bebidas {
                 this.valor = valor + 7;
                 break;
         }
+        listaBebidas.add(this);
     }
 
     public Bebidas() {

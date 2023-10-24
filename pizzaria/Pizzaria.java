@@ -11,54 +11,29 @@ public class Pizzaria {
     static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
     public static void main(String[] args) {
        
-        Ingredientes MolhoDeTomate = new Ingredientes("Molho de Tomate", 2.50, false);
-        listaIngredientes.add(MolhoDeTomate);
-        Ingredientes Mussarela = new Ingredientes("Mussarela", 2.50, false);
-        listaIngredientes.add(Mussarela);
-        Ingredientes ManjericaoFresco = new Ingredientes("Manjericão Fresco", 2.00, false);
-        listaIngredientes.add(ManjericaoFresco);
-        Ingredientes Pepperoni = new Ingredientes("Pepperoni", 3.00, false);
-        listaIngredientes.add(Pepperoni);
-        Ingredientes Gorgonzola = new Ingredientes("Gorgonzola", 3.00, false);
-        listaIngredientes.add(Gorgonzola);
-        Ingredientes Parmesao = new Ingredientes("Parmesão", 3.00, false);
-        listaIngredientes.add(Parmesao);
-        Ingredientes Provolone = new Ingredientes("Provolone", 3.00, false);
-        listaIngredientes.add(Provolone);
-        Ingredientes CalabresaFatiada = new Ingredientes("Calabresa Fatiada", 2.00, false);
-        listaIngredientes.add(CalabresaFatiada);
-        Ingredientes Cebola = new Ingredientes("Cebola", 2.00, false);
-        listaIngredientes.add(Cebola);
-        Ingredientes Pimentoes = new Ingredientes("Pimentões", 2.00, false);
-        listaIngredientes.add(Pimentoes);
-        Ingredientes AzeitonasPretas = new Ingredientes("Azeitonas Pretas", 2.00, false);
-        listaIngredientes.add(AzeitonasPretas);
-        Ingredientes FrangoDesfiado = new Ingredientes("Frango Desfiado", 3.00, false);
-        listaIngredientes.add(FrangoDesfiado);
-        Ingredientes Catupiry = new Ingredientes("Catupiry", 3.00, false);
-        listaIngredientes.add(Catupiry);
-        Ingredientes Milho = new Ingredientes("Milho", 2.00, false);
-        listaIngredientes.add(Milho);
-        Ingredientes CarneSecaDesfiada = new Ingredientes("Carne-Seca Desfiada", 3.00, false);
-        listaIngredientes.add(CarneSecaDesfiada);
-        Ingredientes CebolaRoxa = new Ingredientes("Cebola Roxa", 2.00, false);
-        listaIngredientes.add(CebolaRoxa);
+        Ingredientes MolhoDeTomate = new Ingredientes("Molho de Tomate", 2.50,listaIngredientes);
+        Ingredientes Mussarela = new Ingredientes("Mussarela", 2.50,listaIngredientes);
+        Ingredientes ManjericaoFresco = new Ingredientes("Manjericao Fresco", 2.00,listaIngredientes);
+        Ingredientes Pepperoni = new Ingredientes("Pepperoni", 3.00,listaIngredientes);
+        Ingredientes Gorgonzola = new Ingredientes("Gorgonzola", 3.00,listaIngredientes);
+        Ingredientes Parmesao = new Ingredientes("Parmesao", 3.00,listaIngredientes);
+        Ingredientes Provolone = new Ingredientes("Provolone", 3.00,listaIngredientes);
+        Ingredientes CalabresaFatiada = new Ingredientes("Calabresa Fatiada", 2.00,listaIngredientes);
+        Ingredientes Cebola = new Ingredientes("Cebola", 2.00,listaIngredientes);
+        Ingredientes Pimentoes = new Ingredientes("Pimentoes", 2.00,listaIngredientes);
+        Ingredientes AzeitonasPretas = new Ingredientes("Azeitonas Pretas", 2.00,listaIngredientes);
+        Ingredientes FrangoDesfiado = new Ingredientes("Frango Desfiado", 3.00,listaIngredientes);
+        Ingredientes Catupiry = new Ingredientes("Catupiry", 3.00,listaIngredientes);
+        Ingredientes Milho = new Ingredientes("Milho", 2.00,listaIngredientes);
+        Ingredientes CarneSecaDesfiada = new Ingredientes("Carne-Seca Desfiada", 3.00,listaIngredientes);
+        Ingredientes CebolaRoxa = new Ingredientes("Cebola Roxa", 2.00,listaIngredientes);
         
         
-        Bebidas AguaMineral = new Bebidas("Água Mineral (500ml)", 3.50, "500ml");
-        listaBebidas.add(AguaMineral);
-        Bebidas Refrigerante = new Bebidas("Refrigerante (6000ml)", 4.50, "6000ml");
-        listaBebidas.add(Refrigerante);
-        Bebidas SucoNatural = new Bebidas("Suco Natural (600ml)", 4.00, "600ml");
-        listaBebidas.add(SucoNatural);
-        Bebidas VinhoTaca = new Bebidas("Vinho (Taça)", 9.00, "Taca");
-        listaBebidas.add(VinhoTaca);
-        //resolver isso ai abaixo
-        Pizzas Teste = new Pizzas();
-        Teste.addPizzas(listaPizzas,"Margarida",1,"Pequena",false);
-        Teste.addIngredientesPizza(FrangoDesfiado, 0);
-        Teste.addIngredientesPizza(Catupiry, 1);
-                                          
+        Bebidas AguaMineral = new Bebidas("Agua Mineral ", 3.50, "Pequena",listaBebidas);
+        Bebidas Refrigerante = new Bebidas("Refrigerante ", 4.50, "Pequena",listaBebidas);
+        Bebidas SucoNatural = new Bebidas("Suco Natural ", 4.00, "Pequena",listaBebidas);
+        Bebidas VinhoTaca = new Bebidas("Vinho ", 9.00, "Media",listaBebidas);
+                      
         
         System.out.println("|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n" +
                            "|\\\\\\\\                                                                                      \\\\\\\\|\n" +
@@ -67,11 +42,11 @@ public class Pizzaria {
                            "|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n" +
                            "|                                                                                              |\n" +
                            "|                                                                                              |\n" +
-                           "|    1 - Se deseja pegar uma mesa.                                                             |\n" +
+                           "|    1 - Se deseja pedir uma pizza.                                                            |\n" +
                            "|                                                                                              |\n" +
-                           "|    2 - Se deseja pedir uma pizza via delivery.                                               |\n" +     
+                           "|    2 - Se deseja acessar o painel de administrador.                                          |\n" +     
                            "|                                                                                              |\n" +                
-                           "|    3 - Se deseja acessar o painel de administrador.                                          |\n" +
+                           "|                                                                                              |\n" +
                            "|                                                                                              |\n" +
                            "|                                                                                              |\n" +
                            "|                                                                                              |\n" +
@@ -131,8 +106,157 @@ public class Pizzaria {
                         + "     ---------------------------------------------------\n\n "
                         + "  Digite o numero correspondente de alguma pizza para solicitala!\n"
                         + "     ------------------------ OU -----------------------\n"
-                        + "   Digite 9 para montar sua propria pizza com até 7 ingredientes!");
+                        + "  Digite 9 para montar sua propria pizza com ate 7 ingredientes!");
                 comando = entrada.nextInt();
+                switch(comando){
+                    case 1:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        break;
+                    case 2:
+                       String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;
+                    case 3:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;
+                    case 4:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;                                                                                              
+                    case 5:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;                        
+                    case 6:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;                        
+                    case 7:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;                        
+                    case 8:
+                        String tamanho,qBorda;
+                        int quantidade;
+                        boolean borda;
+                        System.out.println("Digite o tamanho (Pequena,Media ou Grande) da Pizza Margherita voce ira querer :");
+                        tamanho = entrada.nextLine();
+                        System.out.println("Digite a quantidade de Pizzas Margheritas que voce ira querer : ");
+                        quantidade = entrada.nextInt();
+                        System.out.println("Voce prefere que suas pizzas tenham borda? (Sim || Nao) ");
+                        qBorda = entrada.nextLine();
+                        if (qBorda == "Sim") {
+                            borda = true;
+                        }else{
+                            borda = false;
+                        }
+                        Pizzas Margherita = new Pizzas("Margherita",quantidade,"Pequena",borda,listaPizzas);
+                        
+                        break;                        
+                    case 9:
+                        break;                        
+                       
+                                                                                                                                                
+                }
                 break;
             case 2:
                 break;
