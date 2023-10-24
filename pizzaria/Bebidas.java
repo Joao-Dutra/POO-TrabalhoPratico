@@ -33,37 +33,9 @@ public class Bebidas {
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
-
-    //metodos
-    public void removerBebidas(ArrayList<Bebidas> listaBebidas, int index) {
-        if (index >= 0 && index < listaBebidas.size()) {
-            listaBebidas.remove(index);
-        } else {
-            System.out.println("O indice especificado e invalido!");
-        }
-    }
-
-    public static void getBebidas(ArrayList<Bebidas> listaBebidas, int index) {
-        if (index >= 0 && index < listaBebidas.size()) {
-            System.out.println(listaBebidas.get(index));
-        } else {
-            System.out.println("O indice especificado e invalido!");
-        }
-    }
-
-    public static void getListaBebidas(ArrayList<Bebidas> listaBebidas) {
-        for (int index = 0; index < listaBebidas.size(); index++) {
-            System.out.println(listaBebidas.get(index));
-        }
-    }
-
-    public String toString() {
-        String saida;
-        saida = this.nome + " -  R$" + this.valor + " - " + this.tamanho;
-        return saida;
-    }
     //construtores
-    public Bebidas(String nome, double valor, String tamanho,ArrayList<Bebidas> listaBebidas) {
+
+    public Bebidas(String nome, double valor, String tamanho, ArrayList<Bebidas> listaBebidas) {
         this.nome = nome;
         this.tamanho = tamanho;
         this.valor = valor;
@@ -85,5 +57,35 @@ public class Bebidas {
         this.nome = null;
         this.valor = 0;
         this.tamanho = null;
+    }
+
+    //metodos
+    public void removerBebidas(ArrayList<Bebidas> listaBebidas, int index) {
+        if (index >= 0 && index < listaBebidas.size()) {
+            listaBebidas.remove(index);
+        } else {
+            System.out.println("O indice especificado e invalido!");
+        }
+    }
+
+    public String toString() {
+        String saida;
+        saida = this.nome + " -  R$" + this.valor + " - " + this.tamanho;
+        return saida;
+    }
+
+    //staticos
+    public static void getBebidas(ArrayList<Bebidas> listaBebidas, int index) {
+        if (index >= 0 && index < listaBebidas.size()) {
+            System.out.println(listaBebidas.get(index));
+        } else {
+            System.out.println("O indice especificado e invalido!");
+        }
+    }
+
+    public static void getListaBebidas(ArrayList<Bebidas> listaBebidas) {
+        for (int index = 0; index < listaBebidas.size(); index++) {
+            System.out.println(listaBebidas.get(index));
+        }
     }
 }
