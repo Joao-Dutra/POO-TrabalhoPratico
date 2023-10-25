@@ -14,7 +14,7 @@ public class Gerente extends Funcionarios {
         this.senha = senha;
     }
 
-    public Gerente(int senha, ArrayList<Funcionarios> listaFuncionarios, String cargo, double salario, String nome) {
+    public Gerente(int senha, String cargo, double salario, String nome) {
         super(cargo, salario, nome);
         this.senha = senha;
 
