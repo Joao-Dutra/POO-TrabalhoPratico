@@ -1,9 +1,12 @@
 package pizzaria;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Pizzas {
 
+    private static final DecimalFormat df = new DecimalFormat("#0.00");
+    
     //atributos
     private String nome;
     private double valor;
@@ -58,6 +61,7 @@ public class Pizzas {
         this.nome = nome;
         this.tamanho = tamanho;
         this.borda = borda;
+        this.quantidade = quantidade;
         switch (tamanho) {
             case "Pequena":
                 this.valor = 30;
@@ -138,11 +142,12 @@ public class Pizzas {
     public String toString() {
         String saida = "";
 
-        saida += this.nome;
+        saida += this.nome + " " + this.valor + " " + this.tamanho + " " + this.quantidade;
 
         return saida;
     }
 
+    //COLOCAR AS BARRINHAS ATE EM BAIXO
     //staticos
     public static void exibirCardapioPizzas() {
         System.out.println(""
@@ -157,7 +162,7 @@ public class Pizzas {
                 + "\n"
                 + "  1. Margherita:\n"
                 + "     P R$37 - M R$52 - G R$67: \n"
-                + "     Manjericão fresco, Mussarela.\n"
+                + "     Manjericao fresco, Mussarela.\n"
                 + "\n"
                 + "  2. Pepperoni:\n"
                 + "     P R$38 - M R$53 - G R$68:\n"
@@ -169,7 +174,7 @@ public class Pizzas {
                 + "\n"
                 + "  4. Vegetariana:\n"
                 + "     P R$43 - M R$58 - G 73: \n"
-                + "     Cogumelos, Pimentões, Cebola, Azeitonas pretas, \n"
+                + "     Cogumelos, Pimentoes, Cebola, Azeitonas pretas, \n"
                 + "     Mussarela.\n"
                 + "\n"
                 + "  5. Frango com Catupiry:\n"
@@ -183,17 +188,14 @@ public class Pizzas {
                 + "\n"
                 + "  7. Quatro Queijos:\n"
                 + "     P R$44 - M R$59 - G R$74: \n"
-                + "     Gorgonzola, Parmesão, Provolone, Mussarela.\n"
+                + "     Gorgonzola, Parmesao, Provolone, Mussarela.\n"
                 + "\n"
                 + "  8. Pizza do Chef:\n"
                 + "     P R$46 - M R$61 - G R$76: \n"
-                + "     Pepperoni, Cogumelos, Pimentões, Cebola roxa, \n"
+                + "     Pepperoni, Cogumelos, Pimentoees, Cebola roxa, \n"
                 + "     Azeitonas pretas, Mussarela.\n"
                 + "     \n"
-                + "     ---------------------------------------------------\n\n "
-                + "  Digite o numero correspondente de alguma pizza para solicitala!\n"
-                + "     ------------------------ OU -----------------------\n"
-                + "   Digite 9 para montar sua propria pizza com ate 7 ingredientes!");
+                + "     ---------------------------------------------------\n\n ");
     }
 
     public static void getPizzas(ArrayList<Pizzas> listaPizzas, int index) {

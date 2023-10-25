@@ -1,8 +1,11 @@
 package pizzaria;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Ingredientes {
+
+    private static final DecimalFormat df = new DecimalFormat("#0.00");
 
     //atributos
     private String nome;
@@ -28,6 +31,7 @@ public class Ingredientes {
 
     public Ingredientes(String nome, double valor, ArrayList<Ingredientes> listaIngredientes) {
         this.nome = nome;
+        this.valor = valor;
         listaIngredientes.add(this);
     }
 
@@ -47,7 +51,7 @@ public class Ingredientes {
 
     public String toString() {
         String saida;
-        saida = this.nome + " -  R$" + this.valor;
+        saida = this.nome + " -  R$" + df.format(this.valor);
         return saida;
     }
 

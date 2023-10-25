@@ -5,45 +5,91 @@ import java.util.Scanner;
 
 public class Pizzaria {
 
-    static Scanner entrada = new Scanner(System.in);
-    static ArrayList<Pizzas> listaPizzas = new ArrayList<Pizzas>();
-    static ArrayList<Bebidas> listaBebidas = new ArrayList<Bebidas>();
-    static ArrayList<Ingredientes> listaIngredientes = new ArrayList<Ingredientes>();
-    static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
+    private static Scanner entrada = new Scanner(System.in);
+    private static ArrayList<Pizzas> listaPizzas = new ArrayList<Pizzas>();
+    private static ArrayList<Bebidas> listaBebidas = new ArrayList<Bebidas>();
+    private static ArrayList<Ingredientes> listaIngredientes = new ArrayList<Ingredientes>();
+    private static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
 
     public static void main(String[] args) {
 
-        Ingredientes MolhoDeTomate = new Ingredientes("Molho de Tomate", 2.50, listaIngredientes);
-        Ingredientes Mussarela = new Ingredientes("Mussarela", 2.50, listaIngredientes);
-        Ingredientes ManjericaoFresco = new Ingredientes("Manjericao Fresco", 2.00, listaIngredientes);
-        Ingredientes Peperoni = new Ingredientes("Pepperoni", 3.00, listaIngredientes);
-        Ingredientes Gorgonzola = new Ingredientes("Gorgonzola", 3.00, listaIngredientes);
-        Ingredientes Parmesao = new Ingredientes("Parmesao", 3.00, listaIngredientes);
-        Ingredientes Provolone = new Ingredientes("Provolone", 3.00, listaIngredientes);
-        Ingredientes CalabresaFatiada = new Ingredientes("Calabresa Fatiada", 2.00, listaIngredientes);
-        Ingredientes Cebola = new Ingredientes("Cebola", 2.00, listaIngredientes);
-        Ingredientes Pimentoes = new Ingredientes("Pimentoes", 2.00, listaIngredientes);
-        Ingredientes AzeitonasPretas = new Ingredientes("Azeitonas Pretas", 2.00, listaIngredientes);
-        Ingredientes FrangoDesfiado = new Ingredientes("Frango Desfiado", 3.00, listaIngredientes);
-        Ingredientes Catupiry = new Ingredientes("Catupiry", 3.00, listaIngredientes);
-        Ingredientes Milho = new Ingredientes("Milho", 2.00, listaIngredientes);
-        Ingredientes CarneSecaDesfiada = new Ingredientes("Carne-Seca Desfiada", 3.00, listaIngredientes);
-        Ingredientes CebolaRoxa = new Ingredientes("Cebola Roxa", 2.00, listaIngredientes);
+        String[] ingredientesNomes = {
+            "Molho de Tomate", "Mussarela", "Manjericao Fresco",
+            "Pepperoni", "Gorgonzola", "Parmesao",
+            "Provolone", "Calabresa Fatiada", "Cebola",
+            "Pimentoes", "Azeitonas Pretas", "Frango Desfiado",
+            "Catupiry", "Milho", "Carne-Seca Desfiada",
+            "Cebola Roxa"
+        };
 
-        Bebidas AguaMineral = new Bebidas("Agua Mineral ", 3.50, "Pequena", listaBebidas);
-        Bebidas Refrigerante = new Bebidas("Refrigerante ", 4.50, "Pequena", listaBebidas);
-        Bebidas SucoNatural = new Bebidas("Suco Natural ", 4.00, "Pequena", listaBebidas);
-        Bebidas VinhoTaca = new Bebidas("Vinho ", 9.00, "Media", listaBebidas);
+        double[] ingredientesPrecos = {
+            2.50, 2.50, 2.00, 3.00, 3.00, 3.00, 3.00, 2.00,
+            2.00, 2.00, 2.00, 3.00, 3.00, 2.00, 3.00, 2.00
+        };
 
+        for (int i = 0; i < ingredientesNomes.length; i++) {
+            Ingredientes ingrediente = new Ingredientes(ingredientesNomes[i], ingredientesPrecos[i], listaIngredientes);
+        }
+
+        Ingredientes.getListaIngredientes(listaIngredientes);
         Clientes.exibirInterface();
         int comando = 0;
         comando = entrada.nextInt();
-        //botar um while para repetir ação até confirmar pedido!
         switch (comando) {
             case 1:
+                Pedidos x = new Pedidos();
+                boolean continuarPedidos = true;
+                while (continuarPedidos) {
                 Pizzas.exibirCardapioPizzas();
+                System.out.println("Digite o numero correspondente a pizza que voce ira pedir,ou "
+                                 + "Digite 9 para criar sua propria pizza com ate 7 ingredientes :");
                 comando = entrada.nextInt();
-                Pedidos.pizzasPredefinidas(comando);
+                System.out.print("Digite o tamanho (1 - Pequena, 2 - Média ou 3 - Grande) : ");
+                int qTamanho = entrada.nextInt();
+                String tamanho = qTamanho == 1 ? "Pequena" : (qTamanho == 2 ? "Média" : "Grande");
+                System.out.print("Digite a quantidade de Pizzas :");              
+                int quantidade = entrada.nextInt();
+                System.out.print("Prefere que suas pizzas tenham borda? (S ou N): ");
+                char qBorda = entrada.next().charAt(0);
+                boolean borda = (qBorda == 'S' || qBorda == 's');
+
+                switch (comando) {
+                    case 1:
+                        Pizzas Margherita = new Pizzas("Margherita", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 2:
+                        Pizzas Pepperoni = new Pizzas("Pepperoni", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 3:
+                        Pizzas Calabresa = new Pizzas("Calabresa", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 4:
+                        Pizzas Vegetariana = new Pizzas("Vegetariana", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 5:
+                        Pizzas FrangoComCatupiry = new Pizzas("Frango com Catupiry", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 6:
+                        Pizzas Brasileira = new Pizzas("Brasileira", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 7:
+                        Pizzas QuatroQueijos = new Pizzas("Quatro Queijos", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 8:
+                        Pizzas PizzaDoChef = new Pizzas("Pizza do Chef", quantidade, tamanho, borda, listaPizzas);
+                        break;
+                    case 9:
+                        System.out.print("Digite o nome da pizza que você irá criar: ");
+                        entrada.nextLine(); //Perguntar para a Suelen
+                        String nome = entrada.nextLine();
+                        Pizzas Montada = new Pizzas(nome, quantidade, tamanho, borda, listaPizzas);
+                        break;
+                }
+                 System.out.println("Deseja pedir mais pizzas? (S ou N): ");
+                 char continuar = entrada.next().charAt(0);
+                 continuarPedidos = (continuar == 'S' || continuar == 's');
+        }
+                 
                 break;
             case 2:
                 break;
