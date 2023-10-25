@@ -1,5 +1,4 @@
 package pizzaria;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +8,8 @@ public class Pizzaria {
     private static ArrayList<Pizzas> listaPizzas = new ArrayList<Pizzas>();
     private static ArrayList<Bebidas> listaBebidas = new ArrayList<Bebidas>();
     private static ArrayList<Ingredientes> listaIngredientes = new ArrayList<Ingredientes>();
-    private static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
+    private static ArrayList<Funcionarios> listarFuncionarios = new ArrayList<Funcionarios>();
+    
 
     public static void main(String[] args) {
 
@@ -44,9 +44,9 @@ public class Pizzaria {
                 System.out.println("Digite o numero correspondente a pizza que voce ira pedir,ou "
                                  + "Digite 9 para criar sua propria pizza com ate 7 ingredientes :");
                 comando = entrada.nextInt();
-                System.out.print("Digite o tamanho (1 - Pequena, 2 - M�dia ou 3 - Grande) : ");
+                System.out.print("Digite o tamanho (1 - Pequena, 2 - Média ou 3 - Grande) : ");
                 int qTamanho = entrada.nextInt();
-                String tamanho = qTamanho == 1 ? "Pequena" : (qTamanho == 2 ? "M�dia" : "Grande");
+                String tamanho = qTamanho == 1 ? "Pequena" : (qTamanho == 2 ? "Média" : "Grande");
                 System.out.print("Digite a quantidade de Pizzas :");              
                 int quantidade = entrada.nextInt();
                 System.out.print("Prefere que suas pizzas tenham borda? (S ou N): ");
@@ -79,7 +79,7 @@ public class Pizzaria {
                         Pizzas PizzaDoChef = new Pizzas("Pizza do Chef", quantidade, tamanho, borda, listaPizzas);
                         break;
                     case 9:
-                        System.out.print("Digite o nome da pizza que voc� ir� criar: ");
+                        System.out.print("Digite o nome da pizza que você irá criar: ");
                         entrada.nextLine(); //Perguntar para a Suelen
                         String nome = entrada.nextLine();
                         Pizzas Montada = new Pizzas(nome, quantidade, tamanho, borda, listaPizzas);
@@ -92,8 +92,64 @@ public class Pizzaria {
                  
                 break;
             case 2:
+                
+                
+                
+                Gerente joao = new Gerente(1234,"Gerente", 1200, "Joao");
+                 joao.addFuncionario(listarFuncionarios);
+                System.out.println("Digite sua senha:");
+                int senha = entrada.nextInt();
+                
+                if(senha == 1234){
+                   System.out.println(listarFuncionarios);
+                    System.out.println("Opcoes:\n"
+                            + "1 - Adicione Funcionarios\n"
+                            + "2 - Remova Funcionarios\n"
+                            + "3 - Sair");
+                    int comando1 = entrada.nextInt();
+
+                    switch (comando1) {
+                        case 1:
+
+                            System.out.println("Qual o nome do funcionario(a)?");
+                            String nome = entrada.next();
+                            System.out.println("Qual o cargo do funcionario(a)?");
+                            String cargo = entrada.next();
+                            System.out.println("Qual o salario do funcionário(a)?");
+                            double salario = entrada.nextDouble();
+
+                            Funcionarios novoFuncionario = new Funcionarios(cargo, salario, nome);
+                            listarFuncionarios.add(novoFuncionario);
+                            System.out.println("Funcionário adicionado com sucesso.");
+
+                            System.out.println("Lista de Funcionários no Final do Programa:");
+                            System.out.println(listarFuncionarios);
+                        case 2:
+
+                            System.out.println("Quem funcionario(a) sera removido?");
+                            String nomeRemover = entrada.next();
+                            joao.removerFuncionario(listarFuncionarios, senha);
+
+                            System.out.println("Lista de Funcionários no Final do Programa:");
+                            System.out.println(listarFuncionarios);
+
+                         
+                     case 3:
+                    System.out.println("Programa encerrado");
+                 
+                 }
+                }
+                else{
+                    System.out.println("Senha Invalida");
+                }
+                
+                
                 break;
         }
 
     }
+
+   
+        
+    
 }
