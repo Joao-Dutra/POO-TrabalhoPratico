@@ -44,10 +44,14 @@ public class Funcionarios {
         this.salario = 0;
         this.nome = null;
     }
+      public void addFuncionario(ArrayList<Funcionarios> listaFuncionarios) {
+        Funcionarios novoFuncionario = new Funcionarios(this.getCargo(), this.getSalario(), this.getNome());
+        listaFuncionarios.add(novoFuncionario);
+    }
 
     //metodos                
     public String toString() {
-        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Sal·rio: R$" + this.getSalario());
+        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Sal√°rio: R$" + this.getSalario());
         return saida;
     }
 }
