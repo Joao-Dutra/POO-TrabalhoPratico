@@ -56,12 +56,16 @@ public class Ingredientes {
     }
 
     //staticos
-    public static void getIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
+    public static Ingredientes getIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
+        Ingredientes saida = null;
         if (index >= 0 && index < listaIngredientes.size()) {
-            System.out.println(listaIngredientes.get(index));
+            saida = listaIngredientes.get(index);
+        } else if (index == -2) {
+            System.out.print("");
         } else {
             System.out.println("O indice especificado e invalido!");
         }
+        return saida;
     }
 
     public static void getListaIngredientes(ArrayList<Ingredientes> listaIngredientes) {

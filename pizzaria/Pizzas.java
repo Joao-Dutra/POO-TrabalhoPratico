@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Pizzas {
 
     private static final DecimalFormat df = new DecimalFormat("#0.00");
-    
+
     //atributos
     private String nome;
     private double valor;
@@ -77,8 +77,8 @@ public class Pizzas {
         if (quantidade > 1) {
             this.valor *= quantidade;
         }
-        if (borda) {
-            this.valor += 5;
+        if (borda == false) {
+            this.valor -= 3;
         }
         this.inginseridos = new Ingredientes[7];
         listaPizzas.add(this);
@@ -94,6 +94,14 @@ public class Pizzas {
     }
 
     //metodos
+    private void addValorPizza() {
+        for (int index = 0; index < inginseridos.length; index++) {
+            if (inginseridos[index] != null) {
+                this.valor += inginseridos[index].getValor();
+            }
+        }
+    }
+
     public void removerPizzas(ArrayList<Pizzas> listaPizzas, int index) {
         if (index >= 0 && index < listaPizzas.size()) {
             listaPizzas.remove(index);
@@ -104,16 +112,18 @@ public class Pizzas {
 
     // fazer uma variavel q controla o index dos ingredientes
     public void addIngredientesPizza(Ingredientes ingredienteadicionado, int index) {
-        if (index >= 0 && index < inginseridos.length) {
+        if (inginseridos[6] == null) {
             inginseridos[index] = ingredienteadicionado;
+        } else if (index == 8) {
+            System.out.print("");
         } else {
-            System.out.println("O limite de ingredientes foi atingido!");
+            System.out.println("Ingrediente nao adicionado : O limite de ingredientes foi atingido ou indice invalido!");
         }
+        this.addValorPizza();
     }
     // ficar esperto com o index + 1 por informar posicao   
 
     public void removerIngredientesPizza(int index) {
-        index += 1;
         if (inginseridos[index] == null || index < 0 && index > inginseridos.length) {
             System.out.println("Ingrediente informado ja foi removido ou posicao informada nao existe!");
         } else {
@@ -142,7 +152,7 @@ public class Pizzas {
     public String toString() {
         String saida = "";
 
-        saida += this.nome + " " + this.valor + " " + this.tamanho + " " + this.quantidade;
+        saida += this.nome + " R$" + this.valor + " , " + this.tamanho + " Quantidade : " + this.quantidade;
 
         return saida;
     }
@@ -201,6 +211,8 @@ public class Pizzas {
     public static void getPizzas(ArrayList<Pizzas> listaPizzas, int index) {
         if (index >= 0 && index < listaPizzas.size()) {
             System.out.println((index + 1) + ". " + listaPizzas.get(index));
+        } else if (index == -1) {
+            System.out.print("");
         } else {
             System.out.println("O indice especificado e invalido!");
         }
@@ -210,7 +222,8 @@ public class Pizzas {
 
         for (int index = 0; index < listaPizzas.size(); index++) {
             System.out.println((index + 1) + ". " + listaPizzas.get(index));
+            
+           
         }
-
     }
 }

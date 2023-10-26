@@ -40,12 +40,34 @@ public class Gerente extends Funcionarios {
         for (int index = 0; index < listaFuncionarios.size(); index++) {
             System.out.println(listaFuncionarios.get(index));
 
-        }       
+        }
 
     }
+
     public String toString() {
         String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salario: R$" + this.getSalario());
         return saida;
     }
-}
 
+    //staticos
+    public static void exibirInterface() {
+        System.out.println("|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n"
+                + "|\\\\\\\\                                                                                      \\\\\\\\|\n"
+                + "|\\\\\\\\                                Excellence Pizzaria                                   \\\\\\\\|\n"
+                + "|\\\\\\\\                                                                                      \\\\\\\\|\n"
+                + "|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|    1 - Se deseja pedir uma pizza.                                                            |\n"
+                + "|                                                                                              |\n"
+                + "|    2 - Se deseja acessar o painel de administrador.                                          |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |\n"
+                + "|                                                                                              |");
+    }
+}

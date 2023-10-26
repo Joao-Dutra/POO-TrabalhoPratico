@@ -81,6 +81,8 @@ public class Bebidas {
     public static void getBebidas(ArrayList<Bebidas> listaBebidas, int index) {
         if (index >= 0 && index < listaBebidas.size()) {
             System.out.println(listaBebidas.get(index));
+        } else if (index == -1) {
+            System.out.print("");
         } else {
             System.out.println("O indice especificado e invalido!");
         }
