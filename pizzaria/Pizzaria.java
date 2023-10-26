@@ -101,57 +101,91 @@ public class Pizzaria {
                 }
                 Pizzas.getListaPizzas(listaPizzas);
                 break;
-            case 2:
-
-                Gerente Joao = new Gerente(1234, "Gerente", 1200, "Joao");
-                Joao.addFuncionario(listarFuncionarios);
-                System.out.println("Digite sua senha:");
-                int senha = entrada.nextInt();
-
-                if (senha == 1234) {
-                    System.out.println(listarFuncionarios);
-                    System.out.println("Opcoes:\n"
-                            + "1 - Adicione Funcionarios\n"
-                            + "2 - Remova Funcionarios\n"
-                            + "3 - Sair");
-                    int comando1 = entrada.nextInt();
-
-                    switch (comando1) {
-                        case 1:
-
-                            System.out.println("Qual o nome do funcionario(a)?");
-                            String nome = entrada.next();
-                            System.out.println("Qual o cargo do funcionario(a)?");
-                            String cargo = entrada.next();
-                            System.out.println("Qual o salario do funcionario(a)?");
-                            double salario = entrada.nextDouble();
-
-                            Funcionarios novoFuncionario = new Funcionarios(cargo, salario, nome);
-                            listarFuncionarios.add(novoFuncionario);
-                            System.out.println("Funcionario adicionado com sucesso.");
-
-                            System.out.println("Lista de Funcionarios no Final do Programa:");
-                            System.out.println(listarFuncionarios);
-                        case 2:
-
-                            System.out.println("Quem funcionario(a) sera removido?");
-                            String nomeRemover = entrada.next();
-                            Joao.removerFuncionario(listarFuncionarios, senha);
-
-                            System.out.println("Lista de Funcionarios no Final do Programa:");
-                            System.out.println(listarFuncionarios);
-
-                        case 3:
-                            System.out.println("Programa encerrado");
-
-                    }
-                } else {
-                    System.out.println("Senha Invalida");
-                }
-
-                break;
         }
+            System.out.println("Deseja pedir alguma bebida?");
+                    char continuarbebidas = entrada.next().charAt(0);
+                    if (continuarbebidas == 'S' || continuarbebidas == 's') {
+                        Bebidas.getListaBebidas(listaBebidas);
+                    }
+                    break;
+                case 2:
+                    Gerente Joao = new Gerente(1234, "Gerente", 1200, "Joao");
+                    Joao.addFuncionario(listarFuncionarios);
+                    Gerente Kaiky = new Gerente(1234, "Gerente", 12000, "Kaiky");
+                    Kaiky.addFuncionario(listarFuncionarios);
 
+                    int senha = 1234;
+                    int k = 1;
+                    boolean senhaValida = false;
+
+                    while (k == 1) {
+
+                        System.out.println("Digite sua senha:");
+                        int senhaDigitada = entrada.nextInt();
+
+                        if (senhaDigitada == senha) {
+                            senhaValida = true;
+                            break;
+                        } else {
+                            System.out.println("Senha Invalida. Tente novamente.");
+                        }
+                    }
+                    while (true) {
+                        System.out.println("Opcoes:\n"
+                                + "1 - Adicionar Funcionario\n"
+                                + "2 - Remover Funcionario\n"
+                                + "3 - Lista de Funcionarios\n"
+                                + "4 - Sair");
+                        int comando1 = entrada.nextInt();
+
+                        switch (comando1) {
+                            case 1:
+                                System.out.println("Qual o nome do funcionario(a)?");
+                                String nome = entrada.next();
+                                System.out.println("Qual o cargo do funcionario(a)?");
+                                String cargo = entrada.next();
+                                System.out.println("Qual o salario do funcionario(a)?");
+                                double salario = entrada.nextDouble();
+
+                                Funcionarios novoFuncionario = new Funcionarios(cargo, salario, nome);
+                                listarFuncionarios.add(novoFuncionario);
+                                System.out.println("Funcionário(a) adicionado com sucesso.\n");
+                                break;
+
+                            case 2:
+                                System.out.println("Qual funcionario(a) sera removido?");
+                                nome = entrada.next();
+                                Kaiky.removerFuncionario(listarFuncionarios, nome);
+                                System.out.println("Funcionário(a) removido com sucesso.\n");
+                                break;
+
+                            case 3:
+                                System.out.println("Lista de funcionarios:");
+                                for (Funcionarios funcionario : listarFuncionarios) {
+                                    System.out.println(funcionario);
+                                }
+                                break;
+
+                            case 4:
+                                System.out.println("Programa encerrado");
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida. Tente novamente.");
+                        }
+
+                        System.out.println("Deseja continuar:\n"
+                                + "1 - Sim\n"
+                                + "2 - Nao");
+                        int continuar = entrada.nextInt();
+                        if (continuar != 1) {
+                            System.out.println("Programa encerrado.");
+                            break;
+                        }
+                    }
+
+            }
+        }
     }
-
 }
+
