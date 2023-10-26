@@ -62,25 +62,9 @@ public class Pizzas {
         this.tamanho = tamanho;
         this.borda = borda;
         this.quantidade = quantidade;
-        switch (tamanho) {
-            case "Pequena":
-                this.valor = 30;
-                break;
-            case "Media":
-                this.valor = 45;
-                break;
-            case "Grande":
-                this.valor = 60;
-                break;
-        }
-
-        if (quantidade > 1) {
-            this.valor *= quantidade;
-        }
-        if (borda == false) {
-            this.valor -= 3;
-        }
         this.inginseridos = new Ingredientes[7];
+
+        calcularValorTotal();
         listaPizzas.add(this);
     }
 
@@ -94,40 +78,53 @@ public class Pizzas {
     }
 
     //metodos
-    private void addValorPizza() {
-        for (int index = 0; index < inginseridos.length; index++) {
-            if (inginseridos[index] != null) {
-                this.valor += inginseridos[index].getValor();
+    private void calcularValorTotal() {
+        this.valor = 0;
+
+        switch (tamanho) {
+            case "Pequena":
+                this.valor = 30;
+                break;
+            case "Media":
+                this.valor = 45;
+                break;
+            case "Grande":
+                this.valor = 60;
+                break;
+        }
+
+        for (Ingredientes ingrediente : inginseridos) {
+            if (ingrediente != null) {
+                this.valor += ingrediente.getValor();
             }
         }
-    }
-
-    public void removerPizzas(ArrayList<Pizzas> listaPizzas, int index) {
-        if (index >= 0 && index < listaPizzas.size()) {
-            listaPizzas.remove(index);
-        } else {
-            System.out.println("O indice especificado e invalido!");
+        if (!borda) {
+            this.valor -= 3;
+        }
+        if (quantidade > 1) {
+            this.valor *= quantidade;
         }
     }
 
-    // fazer uma variavel q controla o index dos ingredientes
-    public void addIngredientesPizza(Ingredientes ingredienteadicionado, int index) {
-        if (inginseridos[6] == null) {
-            inginseridos[index] = ingredienteadicionado;
-        } else if (index == 8) {
-            System.out.print("");
-        } else {
-            System.out.println("Ingrediente nao adicionado : O limite de ingredientes foi atingido ou indice invalido!");
-        }
-        this.addValorPizza();
+    public void addValorPizzaPredefinida(double valor) {
+        this.valor += valor;
     }
-    // ficar esperto com o index + 1 por informar posicao   
 
-    public void removerIngredientesPizza(int index) {
-        if (inginseridos[index] == null || index < 0 && index > inginseridos.length) {
-            System.out.println("Ingrediente informado ja foi removido ou posicao informada nao existe!");
-        } else {
-            inginseridos[index] = null;
+    private boolean mensagemExibida = false;
+
+    public void addIngredientesPizza(Ingredientes ingredienteadicionado) {
+        int index = 0;
+        while (index < inginseridos.length) {
+            if (inginseridos[index] == null) {
+                inginseridos[index] = ingredienteadicionado;
+                calcularValorTotal();
+                return;
+            }
+            index++;
+        }
+        if (!mensagemExibida) {
+            System.out.println("Ingrediente não adicionado: O limite de ingredientes foi atingido!");
+            mensagemExibida = true;
         }
     }
 
@@ -141,24 +138,24 @@ public class Pizzas {
         }
     }
 
-    public void getIngredientesInseridos(int index) {
-        if (inginseridos[index] == null) {
-            System.out.println("Espaco Vazio");
-        } else {
-            System.out.println(inginseridos[index]);
-        }
-    }
-
     public String toString() {
         String saida = "";
 
-        saida += this.nome + " R$" + this.valor + " , " + this.tamanho + " Quantidade : " + this.quantidade;
+        saida += this.nome + " R$" + df.format(this.valor ) + " - Tamanho : " + this.tamanho + " Quantidade : " + this.quantidade;
 
         return saida;
     }
 
     //COLOCAR AS BARRINHAS ATE EM BAIXO
     //staticos
+    public static void getListaPizzas(ArrayList<Pizzas> listaPizzas) {
+
+        for (int index = 0; index < listaPizzas.size(); index++) {
+            System.out.println((index + 1) + ". " + listaPizzas.get(index));
+
+        }
+    }
+
     public static void exibirCardapioPizzas() {
         System.out.println(""
                 + "\n"
@@ -208,22 +205,4 @@ public class Pizzas {
                 + "     ---------------------------------------------------\n\n ");
     }
 
-    public static void getPizzas(ArrayList<Pizzas> listaPizzas, int index) {
-        if (index >= 0 && index < listaPizzas.size()) {
-            System.out.println((index + 1) + ". " + listaPizzas.get(index));
-        } else if (index == -1) {
-            System.out.print("");
-        } else {
-            System.out.println("O indice especificado e invalido!");
-        }
-    }
-
-    public static void getListaPizzas(ArrayList<Pizzas> listaPizzas) {
-
-        for (int index = 0; index < listaPizzas.size(); index++) {
-            System.out.println((index + 1) + ". " + listaPizzas.get(index));
-            
-           
-        }
-    }
 }

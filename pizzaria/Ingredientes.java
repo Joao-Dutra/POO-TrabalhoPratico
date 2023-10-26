@@ -41,14 +41,6 @@ public class Ingredientes {
     }
 
     //metodos
-    public void removerIngrediente(ArrayList<Ingredientes> listaIngredientes, int index) {
-        if (index >= 0 && index < listaIngredientes.size()) {
-            listaIngredientes.remove(index);
-        } else {
-            System.out.println("O indice especificado e invalido!");
-        }
-    }
-
     public String toString() {
         String saida;
         saida = this.nome + " -  R$" + df.format(this.valor);
