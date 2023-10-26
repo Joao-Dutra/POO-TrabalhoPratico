@@ -31,24 +31,28 @@ public class Gerente extends Funcionarios {
         listaFuncionarios.add(novoFuncionario);
     }
 
-    public void removerFuncionario(ArrayList<Funcionarios> listaFuncionarios, int index) {
-        listaFuncionarios.remove(index);
-    }
-
-    public void listarFuncionarios(ArrayList<Funcionarios> listaFuncionarios) {
-        System.out.println("Lista de Funcionarios do Gerente: ");
-        for (int index = 0; index < listaFuncionarios.size(); index++) {
-            System.out.println(listaFuncionarios.get(index));
-
+    public void removerFuncionario(ArrayList<Funcionarios> listaFuncionarios, String nome) {
+       
+        for (int i = 0; i < listaFuncionarios.size(); i++) {
+            Funcionarios funcionario = listaFuncionarios.get(i);
+            if (funcionario.getNome().equals(nome)) {
+                listaFuncionarios.remove(i);
+            }
+            else{
+                System.out.println("Pessoa nao encontrada.");
+            }
         }
+        }
+    
 
-    }
 
+        
+
+    
     public String toString() {
         String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salario: R$" + this.getSalario());
         return saida;
     }
-
     //staticos
     public static void exibirInterface() {
         System.out.println("|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\|\n"
