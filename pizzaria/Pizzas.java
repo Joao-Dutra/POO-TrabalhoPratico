@@ -125,7 +125,7 @@ public class Pizzas {
             }
             index++;
         }
-        System.out.println("Ingrediente n„o adicionado: O limite de ingredientes foi atingido!");
+        System.out.println("Ingrediente n√£o adicionado: O limite de ingredientes foi atingido!");
     }
 
     public void getListaIngredientesInseridos() {
@@ -141,7 +141,7 @@ public class Pizzas {
     public String toString() {
         String saida = "";
 
-        saida += this.nome + " R$" + df.format(this.valor) + " - Tamanho : " + this.tamanho + " Quantidade : " + this.quantidade;
+        saida += this.nome + " R$" + df.format(this.valor) + " - Tamanho : " + this.tamanho + ", Quantidade : " + this.quantidade;
 
         return saida;
     }
