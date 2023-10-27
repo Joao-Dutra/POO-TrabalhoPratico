@@ -63,7 +63,7 @@ public class Pizzaria {
                     char qBorda = entrada.next().charAt(0);
                     //Logica para "converter" uma var do tipo char para as escolhas do tipo Boolean em relacao a borda
                     boolean borda = (qBorda == 'S' || qBorda == 's');
-                    //2� Switch para selecao das pizzas
+                    //2° Switch para selecao das pizzas
                     switch (comando) {
                         case 1:
                             //construtor de Pizza pegando as informacoes acima e enviando para a construcao da tal
@@ -127,11 +127,50 @@ public class Pizzaria {
                 }
                 break;
 
-            /*System.out.println("Deseja pedir alguma bebida?");
-                    char continuarbebidas = entrada.next().charAt(0);
-                    if (continuarbebidas == 'S' || continuarbebidas == 's') {
+              boolean continuarPedido2 = true;
+              while(continuarPedido2){
+           
+               
+                   System.out.println("Bebidas\n" +
+                                            "(Informado os valores minimos, tamanhos maiores possuem acrescimos)\n" +
+                                            "\n" +
+                                            "Agua Mineral(500ml)............................3.50\n" +
+                                            "Refrigerante(6000ml)...........................4.50\n" +
+                                            "Suco Natural (600 ml)..........................4.00\n" +
+                                            "Vinho(Taca)....................................9.00\n" +
+                                            "\n" +
+                                            "---------------------------------------------------");
+                   System.out.println("Deseja pedir alguma bebida?");
+                    char continuarBebidas = entrada.next().charAt(0);
+                    if (continuarBebidas == 'S' || continuarBebidas == 's') {
                         Bebidas.getListaBebidas(listaBebidas);
-                    }*/
+                        System.out.println("Digite o numero correspondente a pizza que voce ira pedir: ");
+                    comando = entrada.nextInt();
+                    System.out.println("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) : ");
+                    int qTamanho1 = entrada.nextInt();
+                    String tamanho = qTamanho1 == 1 ? "Pequena" : (qTamanho1 == 2 ? "Media" : "Grande");
+                    System.out.println("Digite a quantidade:");
+                    int quantidade1 = entrada.nextInt();
+
+                        switch (comando) {
+                    case 1:
+                    Bebidas Agua = new Bebidas("Agua mineral", 3.5, tamanho, quantidade1, listaBebidas);
+                    break;
+                    case 2:
+                    Bebidas Refrigerante = new Bebidas("Refigerante", 4.5, tamanho, quantidade1, listaBebidas);
+                    break;
+                    case 3:
+                    Bebidas Vinho = new Bebidas("Vinho", 4.5, tamanho, quantidade1, listaBebidas);
+                    default:
+                    System.out.println("Comando inválido.");
+                    }
+              }
+                    
+              }
+               char continuar = entrada.next().charAt(0);
+                    continuarBebidas = (continuar == 'S' || continuar == 's');
+                    Bebidas.getBebidas(listaBebidas, comando);
+                   break;
             case 2:
                 //Criacao de um gerente
                 Gerente Joao = new Gerente(1234, "Gerente", 1200, "Joao");
