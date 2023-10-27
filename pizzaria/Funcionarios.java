@@ -54,7 +54,11 @@ public class Funcionarios {
     }
 
     public String toString() {
-        String saida = ("Nome: " + this.getNome() + "\n" + "Cargo: " + this.getCargo() + "\n" + "Salario: R$" + this.getSalario());
+        String saida = ("\n===========================\n"
+                + "Nome..: " + this.getNome() + "\n" + 
+                "Cargo..: " + this.getCargo() + "\n" +
+                "Salario: R$" + this.getSalario()+
+                "\n===========================");
         return saida;
     }
     //staticos
