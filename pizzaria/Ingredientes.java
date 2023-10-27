@@ -61,8 +61,11 @@ public class Ingredientes {
     }
 
     public static void getListaIngredientes(ArrayList<Ingredientes> listaIngredientes) {
+        System.out.println("      ---------------------------------------------------");
         for (int index = 0; index < listaIngredientes.size(); index++) {
-            System.out.println(index + 1 + ". " + listaIngredientes.get(index));
+            System.out.print("  ");
+            System.out.println(index + 1 +". " + listaIngredientes.get(index));
         }
+        System.out.println("      ---------------------------------------------------");
     }
 }

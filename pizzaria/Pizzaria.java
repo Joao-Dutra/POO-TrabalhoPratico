@@ -1,3 +1,4 @@
+
 package pizzaria;
 
 import java.text.DecimalFormat;
@@ -16,9 +17,9 @@ public class Pizzaria {
     public static void main(String[] args) {
         //Vetor com nome dos ingredientes
         String[] ingredientesNomes = {
-            "Molho de Tomate", "Mussarela", "Manjericao Fresco",
-            "Pepperoni", "Gorgonzola", "Parmesao",
-            "Provolone", "Calabresa Fatiada", "Cebola",
+            " Molho de Tomate", " Mussarela", " Manjericao Fresco",
+            " Pepperoni", " Gorgonzola", " Parmesao",
+            " Provolone", " Calabresa Fatiada", " Cebola",
             "Pimentoes", "Azeitonas Pretas", "Frango Desfiado",
             "Catupiry", "Milho", "Carne-Seca Desfiada",
             "Cebola Roxa"
@@ -50,19 +51,22 @@ public class Pizzaria {
                 while (continuarPedidos) {
                     //Chamada da interface do cardapio de pizzas que se localiza na classe Pizzas
                     Pizzas.exibirCardapioPizzas();
-                    System.out.println("Digite o numero correspondente a pizza que voce ira pedir,Ou\n"
-                            + "Digite 9 para criar sua propria pizza com ate 7 ingredientes : ");
+                    System.out.print("Digite o numero correspondente a pizza que voce ira pedir,Ou\n"
+                            + ">> ");
                     //Reaproveitamento da var comando para escolher a opcao das pizzas
                     comando = entrada.nextInt();
-                    System.out.println("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) : ");
+                    System.out.print("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) :\n"
+                            + ">> ");
                     //Inicializao de uma var tipo int que controla o tamanho da pizza
                     int qTamanho = entrada.nextInt();
                     //Logica para "converter" uma var do tipo int para as escolhas do tipo String em relacao ao tamanho
                     String tamanho = qTamanho == 1 ? "Pequena" : (qTamanho == 2 ? "Media" : "Grande");
-                    System.out.println("Digite a quantidade de Pizzas :");
+                    System.out.print("Digite a quantidade de Pizzas :\n"
+                            + ">> ");
                     //Inicializao de uma var para escolher a quantidade de pizzas
                     int quantidade = entrada.nextInt();
-                    System.out.println("Prefere que suas pizzas tenham borda? (S ou N --> R$ 3,00 de desconto) : ");
+                    System.out.print("Prefere que suas pizzas tenham borda? (S ou N --> R$ 3,00 de desconto) :\n"
+                            + ">> ");
                     //Inicializacao de uma var tipo char q pergunta se as pizzas terao borda ou nao
                     char qBorda = entrada.next().charAt(0);
                     //Logica para "converter" uma var do tipo char para as escolhas do tipo Boolean em relacao a borda
@@ -112,26 +116,32 @@ public class Pizzaria {
                             valorTotalConta += PizzaDoChef.getValor();
                             break;
                         case 9:
-                            System.out.println("Digite o nome da pizza que voce ira criar : ");
+                            System.out.print("Digite o nome da pizza que voce ira criar :\n"
+                                    + ">> ");
                             entrada.nextLine(); //Perguntar para a Suelen
                             //Inicializacao de uma var para perguntar nome da pizza que vai ser criada
                             String nome = entrada.nextLine();
                             Pizzas Montada = new Pizzas(nome, quantidade, tamanho, borda, listaPizzas);
-                            System.out.println("Agora escolha ate 7 ingredientes para voce adicionar a sua Pizza : ");
+                            System.out.println("Agora escolha ate 7 ingredientes para voce adicionar a sua Pizza :\n");
                             //Chamada de um metodo statico para exibir a lista dos ingredientes que se localiza na classe Ingredientes
                             Ingredientes.getListaIngredientes(listaIngredientes);
                             //Inicializao de uma var para controlar a adicao de ingredientes na pizza sendo criada
                             int comandoIngrediente = 0;
-                            System.out.println("Quando finalizar de adicionar os ingredientes digite (-1) : ");
+                            System.out.print("Quando finalizar de adicionar os ingredientes digite (-1) :\n");
                             while (comandoIngrediente != -1) {
                                 comandoIngrediente = entrada.nextInt();
                                 Montada.addIngredientesPizza(Ingredientes.getIngrediente(listaIngredientes, (comandoIngrediente - 1)));
-
+                                 
                             }
+                           if(comandoIngrediente == -1){
+                                System.out.println("Ingredientes adicionados com sucesso");
+                           }
+                          
                             valorTotalConta += Montada.getValor();
                             break;
                     }
-                    System.out.println("Deseja pedir mais pizzas? (S ou N): ");
+                    System.out.print("Deseja pedir mais pizzas? (S ou N) :\n"
+                            + ">> ");
                     //Inicializao de var para continuar a pedir mais pizzas
                     char continuar = entrada.next().charAt(0);
                     continuarPedidos = (continuar == 'S' || continuar == 's');
@@ -142,18 +152,22 @@ public class Pizzaria {
 
                 boolean continuarPedido2 = true;
                 char inicializarbebida = 0;
-                System.out.println("\n---------------------------\n"
-                        + "Deseja pedir alguma bebida? (S ou N): ");
+                System.out.print("\n\n     ---------------------------------------------------\n\n"
+                        + "Deseja pedir alguma bebida? (S ou N):\n"
+                        + ">> ");
                 inicializarbebida = entrada.next().charAt(0);
                 if (inicializarbebida == 'S' || inicializarbebida == 's') {
                     while (continuarPedido2) {
                         Bebidas.exibirCardapioBebidas();
-                        System.out.println("Digite o numero correspondente a bebida que voce ira pedir: ");
+                        System.out.print("Digite o numero correspondente a bebida que voce ira pedir:\n"
+                                + ">> ");
                         comando = entrada.nextInt();
-                        System.out.println("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) : ");
+                        System.out.print("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) :\n"
+                                + ">> ");
                         int qTamanho1 = entrada.nextInt();
                         String tamanho = qTamanho1 == 1 ? "Pequena" : (qTamanho1 == 2 ? "Media" : "Grande");
-                        System.out.println("Digite a quantidade:");
+                        System.out.print("Digite a quantidade:\n"
+                                + ">> ");
                         int quantidade1 = entrada.nextInt();
                         switch (comando) {
                             case 1:
@@ -176,24 +190,28 @@ public class Pizzaria {
                                 System.out.println("Opcao invalida.");
                                 break;
                         }
-                        System.out.println("Deseja pedir mais bebidas? (S ou N): ");
+                        System.out.print("Deseja pedir mais bebidas? (S ou N):\n"
+                                + ">> ");
                         char continuar = entrada.next().charAt(0);
                         continuarPedido2 = (continuar == 'S' || continuar == 's');
                     }
                     System.out.println("");
                     Bebidas.getListaBebidas(listaBebidas);
                 }
-                System.out.println("\n\n|              ---               |\n            Sua conta");
-                System.out.println("\n---------------------------\n"
-                        + "Seus pedidos de Pizzas : ");
+                System.out.println("\n\n              |              ---               |\n"
+                                 + "                           COMANDA");
+                System.out.print("\n     ---------------------------------------------------\n\n"
+                        + "     Seus pedidos de Pizzas :\n"
+                        + "     ");
                 Pizzas.getListaPizzas(listaPizzas);
-                System.out.println("\n---------------------------\n"
-                        + "Seus pedidos de Bebidas : ");
+                System.out.print("\n\n     ---------------------------------------------------\n\n"
+                        + "     Seus pedidos de Bebidas :\n"
+                        + "     ");
                 Bebidas.getListaBebidas(listaBebidas);
-                System.out.println("\n---------------------------\n"
-                        + "O Total do Pedido deu : R$" + df.format(valorTotalConta)
-                        + "\nDigite qualquer tecla para pagar sua conta : "
-                        +"\n---------------------------\n               Fim");
+                System.out.println("\n\n     ---------------------------------------------------\n\n"
+                        + "     O Total do Pedido deu : R$" + df.format(valorTotalConta)
+                        + "\n     Digite qualquer tecla para pagar sua conta : "
+                        +"\n\n     ---------------------------------------------------\n                           Fim");
                 String fim = entrada.nextLine();
                 break;
 
@@ -238,20 +256,25 @@ public class Pizzaria {
                     switch (comando1) {
                         //Adicionar Funcionario
                         case 1:
-                            System.out.println("\nQual o nome do funcionario(a)?");
+                            System.out.print("\nQual o nome do funcionario(a)?\n"
+                                    + ">> ");
                             String nome = entrada.next();
-                            System.out.println("\nQual o cargo do funcionario(a)?");
+                            System.out.print("\nQual o cargo do funcionario(a)?\n"
+                                    + ">>");
                             String cargo = entrada.next();
-                            System.out.println("\nQual o salario do funcionario(a)?");
+                            System.out.print("\nQual o salario do funcionario(a)?\n"
+                                    + ">>");
                             double salario = entrada.nextDouble();
 
                             Funcionarios novoFuncionario = new Funcionarios(cargo, salario, nome);
                             listaFuncionarios.add(novoFuncionario);
-                            System.out.println("Funcionario(a) adicionado com sucesso.\n");
+                            System.out.print("Funcionario(a) adicionado com sucesso.\n"
+                                    + ">>");
                             break;
                         //Remover Funcionario
                         case 2:
-                            System.out.println("\nQual funcionario(a) sera removido?");
+                            System.out.print("\nQual funcionario(a) sera removido?\n"
+                                    + ">> ");
                             nome = entrada.next();
                             Kaiky.removerFuncionario(listaFuncionarios, nome);
                             break;

@@ -13,7 +13,7 @@ public class Pizzas {
     private String tamanho;
     private int quantidade;
     private boolean borda;
-    private Ingredientes inginseridos[] = new Ingredientes[7];
+    private Ingredientes inginseridos[] = new Ingredientes[8];
 
     //getter and setters
     public String getNome() {
@@ -62,7 +62,7 @@ public class Pizzas {
         this.tamanho = tamanho;
         this.borda = borda;
         this.quantidade = quantidade;
-        this.inginseridos = new Ingredientes[7];
+        this.inginseridos = new Ingredientes[8];
 
         calcularValorTotal();
         listaPizzas.add(this);
@@ -123,7 +123,7 @@ public class Pizzas {
             index++;
         }
         if (!mensagemExibida) {
-            System.out.println("Ingrediente não adicionado: O limite de ingredientes foi atingido!");
+            System.out.println("Ingrediente nao adicionado: O limite de ingredientes foi atingido!");
             mensagemExibida = true;
         }
     }
