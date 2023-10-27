@@ -138,7 +138,7 @@ public class Pizzaria {
                             valorTotalConta += Montada.getValor();
                             break;
                         default:
-                            System.out.println("Opçao de escolha de pizza invalida --> Valores informados foram anulados.");
+                            System.out.println("OpÃ§ao de escolha de pizza invalida --> Valores informados foram anulados.");
                     }
                     System.out.print("Deseja pedir mais pizzas? (S ou N) :\n"
                             + ">> ");
@@ -193,7 +193,7 @@ public class Pizzaria {
                                 valorTotalConta += Vinho.getValor();
                                 break;
                             default:
-                                System.out.println("Opçao de escolha de pizza invalida --> Valores informados foram anulados.");
+                                System.out.println("OpÃ§ao de escolha de pizza invalida --> Valores informados foram anulados.");
                                 break;
                         }
                         System.out.print("Deseja pedir mais bebidas? (S ou N):\n"
