@@ -13,7 +13,7 @@ public class Pizzas {
     private String tamanho;
     private int quantidade;
     private boolean borda;
-    private Ingredientes inginseridos[] = new Ingredientes[8];
+    private Ingredientes inginseridos[] = new Ingredientes[7];
 
     //getter and setters
     public String getNome() {
@@ -62,7 +62,7 @@ public class Pizzas {
         this.tamanho = tamanho;
         this.borda = borda;
         this.quantidade = quantidade;
-        this.inginseridos = new Ingredientes[8];
+        this.inginseridos = new Ingredientes[7];
 
         calcularValorTotal();
         listaPizzas.add(this);
@@ -110,9 +110,12 @@ public class Pizzas {
         this.valor += valor;
     }
 
-    private boolean mensagemExibida = false;
-    //Concertar isso
     public void addIngredientesPizza(Ingredientes ingredienteadicionado) {
+        if (ingredienteadicionado == null) {
+            System.out.print("");
+            return;
+        }
+
         int index = 0;
         while (index < inginseridos.length) {
             if (inginseridos[index] == null) {
@@ -122,10 +125,7 @@ public class Pizzas {
             }
             index++;
         }
-        if (!mensagemExibida) {
-            System.out.println("Ingrediente nao adicionado: O limite de ingredientes foi atingido!");
-            mensagemExibida = true;
-        }
+        System.out.println("Ingrediente não adicionado: O limite de ingredientes foi atingido!");
     }
 
     public void getListaIngredientesInseridos() {
@@ -141,12 +141,11 @@ public class Pizzas {
     public String toString() {
         String saida = "";
 
-        saida += this.nome + " R$" + df.format(this.valor ) + " - Tamanho : " + this.tamanho + " Quantidade : " + this.quantidade;
+        saida += this.nome + " R$" + df.format(this.valor) + " - Tamanho : " + this.tamanho + " Quantidade : " + this.quantidade;
 
         return saida;
     }
 
-    //COLOCAR AS BARRINHAS ATE EM BAIXO
     //staticos
     public static void getListaPizzas(ArrayList<Pizzas> listaPizzas) {
 
@@ -201,7 +200,7 @@ public class Pizzas {
                 + "     P R$46 - M R$61 - G R$76: \n"
                 + "     Pepperoni, Cogumelos, Pimentoees, Cebola roxa, \n"
                 + "     Azeitonas pretas, Mussarela.\n"
-                + "     \n"              
+                + "     \n"
                 + "  9. Crie sua propria Pizza : \n"
                 + "     Com ate 7 ingredientes. \n"
                 + "     ---------------------------------------------------\n\n ");

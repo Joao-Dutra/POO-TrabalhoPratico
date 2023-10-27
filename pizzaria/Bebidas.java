@@ -90,16 +90,6 @@ public class Bebidas {
     }
 
     //staticos
-    public static void getBebidas(ArrayList<Bebidas> listaBebidas, int index) {
-        if (index >= 0 && index < listaBebidas.size()) {
-            System.out.println(listaBebidas.get(index));
-        } else if (index == -1) {
-            System.out.print("");
-        } else {
-            System.out.println("O indice especificado e invalido!");
-        }
-    }
-
     public static void getListaBebidas(ArrayList<Bebidas> listaBebidas) {
         for (int index = 0; index < listaBebidas.size(); index++) {
             System.out.println((index + 1) + ". " + listaBebidas.get(index));

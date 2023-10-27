@@ -1,4 +1,3 @@
-
 package pizzaria;
 
 import java.text.DecimalFormat;
@@ -14,6 +13,7 @@ public class Pizzaria {
     private static ArrayList<Ingredientes> listaIngredientes = new ArrayList<Ingredientes>();
     private static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
     private static final DecimalFormat df = new DecimalFormat("#0.00");
+
     public static void main(String[] args) {
         //Vetor com nome dos ingredientes
         String[] ingredientesNomes = {
@@ -52,7 +52,8 @@ public class Pizzaria {
                     //Chamada da interface do cardapio de pizzas que se localiza na classe Pizzas
                     Pizzas.exibirCardapioPizzas();
                     System.out.print("Digite o numero correspondente a pizza que voce ira pedir,Ou\n"
-                            + ">> ");
+                            + "Digite 9 para criar sua propria pizza com ate 7 ingredientes : "
+                            + "\n>> ");
                     //Reaproveitamento da var comando para escolher a opcao das pizzas
                     comando = entrada.nextInt();
                     System.out.print("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) :\n"
@@ -128,15 +129,12 @@ public class Pizzaria {
                             //Inicializao de uma var para controlar a adicao de ingredientes na pizza sendo criada
                             int comandoIngrediente = 0;
                             System.out.print("Quando finalizar de adicionar os ingredientes digite (-1) :\n");
+                            //While de adicao de ingredientes
                             while (comandoIngrediente != -1) {
                                 comandoIngrediente = entrada.nextInt();
                                 Montada.addIngredientesPizza(Ingredientes.getIngrediente(listaIngredientes, (comandoIngrediente - 1)));
-                                 
+
                             }
-                           if(comandoIngrediente == -1){
-                                System.out.println("Ingredientes adicionados com sucesso");
-                           }
-                          
                             valorTotalConta += Montada.getValor();
                             break;
                     }
@@ -150,14 +148,19 @@ public class Pizzaria {
                 System.out.println("");
                 Pizzas.getListaPizzas(listaPizzas);
 
+                //Var criada para controle de pedidos das bebidas
                 boolean continuarPedido2 = true;
+                //Var criada para inicializar o pedido das bebidas
                 char inicializarbebida = 0;
                 System.out.print("\n\n     ---------------------------------------------------\n\n"
                         + "Deseja pedir alguma bebida? (S ou N):\n"
                         + ">> ");
                 inicializarbebida = entrada.next().charAt(0);
+                //If que controla acesso ao menu de bebidas
                 if (inicializarbebida == 'S' || inicializarbebida == 's') {
+                    //While que controla se a pessoa vai continuar pedindo bebidas
                     while (continuarPedido2) {
+                        //Chamada de metodo que exibe cardapio de bebidas que se localica na classe bebidas
                         Bebidas.exibirCardapioBebidas();
                         System.out.print("Digite o numero correspondente a bebida que voce ira pedir:\n"
                                 + ">> ");
@@ -169,6 +172,7 @@ public class Pizzaria {
                         System.out.print("Digite a quantidade:\n"
                                 + ">> ");
                         int quantidade1 = entrada.nextInt();
+                        //Switch com as escolhas das bebidas
                         switch (comando) {
                             case 1:
                                 Bebidas Agua = new Bebidas("Agua Mineral", 3.5, tamanho, quantidade1, listaBebidas);
@@ -195,11 +199,13 @@ public class Pizzaria {
                         char continuar = entrada.next().charAt(0);
                         continuarPedido2 = (continuar == 'S' || continuar == 's');
                     }
+                    //Chamada de um metodo statico para exibir as bebidass pedidas localizada na classe bebidas
                     System.out.println("");
                     Bebidas.getListaBebidas(listaBebidas);
                 }
+                //Exibicao da comanda final
                 System.out.println("\n\n              |              ---               |\n"
-                                 + "                           COMANDA");
+                        + "                           COMANDA");
                 System.out.print("\n     ---------------------------------------------------\n\n"
                         + "     Seus pedidos de Pizzas :\n"
                         + "     ");
@@ -211,7 +217,7 @@ public class Pizzaria {
                 System.out.println("\n\n     ---------------------------------------------------\n\n"
                         + "     O Total do Pedido deu : R$" + df.format(valorTotalConta)
                         + "\n     Digite qualquer tecla para pagar sua conta : "
-                        +"\n\n     ---------------------------------------------------\n                           Fim");
+                        + "\n\n     ---------------------------------------------------\n                           Fim");
                 String fim = entrada.nextLine();
                 break;
 
