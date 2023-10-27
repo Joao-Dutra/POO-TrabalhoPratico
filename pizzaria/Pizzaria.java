@@ -62,7 +62,7 @@ public class Pizzaria {
                     int qTamanho = entrada.nextInt();
                     //Logica para "converter" uma var do tipo int para as escolhas do tipo String em relacao ao tamanho
                     String tamanho = qTamanho == 1 ? "Pequena" : (qTamanho == 2 ? "Media" : "Grande");
-                    System.out.print("Digite a quantidade de Pizzas (Desconto de acordo com qauntidade de pizzas):\n"
+                    System.out.print("Digite a quantidade de Pizzas (Desconto de acordo com quantidade de pizzas):\n"
                             + ">> ");
                     //Inicializao de uma var para escolher a quantidade de pizzas
                     int quantidade = entrada.nextInt();
