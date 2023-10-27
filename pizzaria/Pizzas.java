@@ -202,7 +202,7 @@ public class Pizzas {
                 + "     Pepperoni, Cogumelos, Pimentoees, Cebola roxa, \n"
                 + "     Azeitonas pretas, Mussarela.\n"
                 + "     \n"              
-                + "  9. Crie sua propria Pizza!:\n"
+                + "  9. Crie sua propria Pizza : \n"
                 + "     Com ate 7 ingredientes. \n"
                 + "     ---------------------------------------------------\n\n ");
     }

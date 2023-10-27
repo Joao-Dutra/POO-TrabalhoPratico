@@ -1,8 +1,11 @@
 package pizzaria;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Funcionarios {
+
+    private static final DecimalFormat df = new DecimalFormat("#0.00");
 
     //atributos
     private String cargo;
@@ -48,17 +51,12 @@ public class Funcionarios {
     }
 
     //metodos  
-    public void addFuncionario(ArrayList<Funcionarios> listaFuncionarios) {
-        Funcionarios novoFuncionario = new Funcionarios(this.getCargo(), this.getSalario(), this.getNome());
-        listaFuncionarios.add(novoFuncionario);
-    }
-
     public String toString() {
         String saida = ("\n===========================\n"
-                + "Nome..: " + this.getNome() + "\n" + 
-                "Cargo..: " + this.getCargo() + "\n" +
-                "Salario: R$" + this.getSalario()+
-                "\n===========================");
+                + "Nome..: " + this.getNome() + "\n"
+                + "Cargo..: " + this.getCargo() + "\n"
+                + "Salario: R$" + df.format(this.getSalario())
+                + "\n===========================");
         return saida;
     }
     //staticos

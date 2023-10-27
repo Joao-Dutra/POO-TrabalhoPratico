@@ -1,16 +1,18 @@
 package pizzaria;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Pizzaria {
+
     //Scanner e Listas onde se encontra os objetos
     private static Scanner entrada = new Scanner(System.in);
     private static ArrayList<Pizzas> listaPizzas = new ArrayList<Pizzas>();
     private static ArrayList<Bebidas> listaBebidas = new ArrayList<Bebidas>();
     private static ArrayList<Ingredientes> listaIngredientes = new ArrayList<Ingredientes>();
     private static ArrayList<Funcionarios> listaFuncionarios = new ArrayList<Funcionarios>();
-
+    private static final DecimalFormat df = new DecimalFormat("#0.00");
     public static void main(String[] args) {
         //Vetor com nome dos ingredientes
         String[] ingredientesNomes = {
@@ -40,6 +42,8 @@ public class Pizzaria {
         switch (comando) {
             //Caso 1 :  pedir pizza
             case 1:
+                //Inicializao de uma var para somar o total do pedido
+                double valorTotalConta = 0.0;
                 //Inicializao de uma var que controla o while
                 boolean continuarPedidos = true;
                 //While que controla o fim do pedido das pizzas
@@ -47,7 +51,7 @@ public class Pizzaria {
                     //Chamada da interface do cardapio de pizzas que se localiza na classe Pizzas
                     Pizzas.exibirCardapioPizzas();
                     System.out.println("Digite o numero correspondente a pizza que voce ira pedir,Ou\n"
-                                      +"Digite 9 para criar sua propria pizza com ate 7 ingredientes : ");
+                            + "Digite 9 para criar sua propria pizza com ate 7 ingredientes : ");
                     //Reaproveitamento da var comando para escolher a opcao das pizzas
                     comando = entrada.nextInt();
                     System.out.println("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) : ");
@@ -58,49 +62,57 @@ public class Pizzaria {
                     System.out.println("Digite a quantidade de Pizzas :");
                     //Inicializao de uma var para escolher a quantidade de pizzas
                     int quantidade = entrada.nextInt();
-                    System.out.println("Prefere que suas pizzas tenham borda? (S ou N) : ");
+                    System.out.println("Prefere que suas pizzas tenham borda? (S ou N --> R$ 3,00 de desconto) : ");
                     //Inicializacao de uma var tipo char q pergunta se as pizzas terao borda ou nao
                     char qBorda = entrada.next().charAt(0);
                     //Logica para "converter" uma var do tipo char para as escolhas do tipo Boolean em relacao a borda
                     boolean borda = (qBorda == 'S' || qBorda == 's');
-                    //2° Switch para selecao das pizzas
+                    //2 Switch para selecao das pizzas
                     switch (comando) {
                         case 1:
                             //construtor de Pizza pegando as informacoes acima e enviando para a construcao da tal
                             Pizzas Margherita = new Pizzas("Margherita", quantidade, tamanho, borda, listaPizzas);
                             //Chamada de metodo para adicao do valor total dos ingredientes ao valor base da pizza
                             Margherita.addValorPizzaPredefinida(7);
+                            valorTotalConta += Margherita.getValor();
                             break;
                         case 2:
                             Pizzas Pepperoni = new Pizzas("Pepperoni", quantidade, tamanho, borda, listaPizzas);
                             Pepperoni.addValorPizzaPredefinida(8);
+                            valorTotalConta += Pepperoni.getValor();
                             break;
                         case 3:
                             Pizzas Calabresa = new Pizzas("Calabresa", quantidade, tamanho, borda, listaPizzas);
                             Calabresa.addValorPizzaPredefinida(10);
+                            valorTotalConta += Calabresa.getValor();
                             break;
                         case 4:
                             Pizzas Vegetariana = new Pizzas("Vegetariana", quantidade, tamanho, borda, listaPizzas);
                             Vegetariana.addValorPizzaPredefinida(13);
+                            valorTotalConta += Vegetariana.getValor();
                             break;
                         case 5:
                             Pizzas FrangoComCatupiry = new Pizzas("Frango com Catupiry", quantidade, tamanho, borda, listaPizzas);
                             FrangoComCatupiry.addValorPizzaPredefinida(13);
+                            valorTotalConta += FrangoComCatupiry.getValor();
                             break;
                         case 6:
                             Pizzas Brasileira = new Pizzas("Brasileira", quantidade, tamanho, borda, listaPizzas);
                             Brasileira.addValorPizzaPredefinida(13);
+                            valorTotalConta += Brasileira.getValor();
                             break;
                         case 7:
                             Pizzas QuatroQueijos = new Pizzas("Quatro Queijos", quantidade, tamanho, borda, listaPizzas);
                             QuatroQueijos.addValorPizzaPredefinida(14);
+                            valorTotalConta += QuatroQueijos.getValor();
                             break;
                         case 8:
                             Pizzas PizzaDoChef = new Pizzas("Pizza do Chef", quantidade, tamanho, borda, listaPizzas);
                             PizzaDoChef.addValorPizzaPredefinida(16);
+                            valorTotalConta += PizzaDoChef.getValor();
                             break;
                         case 9:
-                            System.out.print("Digite o nome da pizza que voce ira criar : ");
+                            System.out.println("Digite o nome da pizza que voce ira criar : ");
                             entrada.nextLine(); //Perguntar para a Suelen
                             //Inicializacao de uma var para perguntar nome da pizza que vai ser criada
                             String nome = entrada.nextLine();
@@ -116,34 +128,26 @@ public class Pizzaria {
                                 Montada.addIngredientesPizza(Ingredientes.getIngrediente(listaIngredientes, (comandoIngrediente - 1)));
 
                             }
+                            valorTotalConta += Montada.getValor();
                             break;
                     }
                     System.out.println("Deseja pedir mais pizzas? (S ou N): ");
                     //Inicializao de var para continuar a pedir mais pizzas
                     char continuar = entrada.next().charAt(0);
                     continuarPedidos = (continuar == 'S' || continuar == 's');
-                    //Chamada de um metodo statico para exibir as pizzas pedidas/criadas localizada na classe Pizzas
-                    Pizzas.getListaPizzas(listaPizzas);
                 }
-                break;
+                //Chamada de um metodo statico para exibir as pizzas pedidas/criadas localizada na classe Pizzas
+                System.out.println("");
+                Pizzas.getListaPizzas(listaPizzas);
 
                 boolean continuarPedido2 = true;
-                while (continuarPedido2) {
-
-                    System.out.println("\n----------------------------------------------------"
-                            + "\n > Bebidas\n"
-                            + "(Informado os valores minimos, tamanhos maiores possuem acrescimos)\n"
-                            + "\n"
-                            + "1 - Agua Mineral(500ml)............................3,50\n"
-                            + "2 - Refrigerante(6000ml)...........................4,50\n"
-                            + "3 - Suco Natural (600 ml)..........................4,00\n"
-                            + "4 -  Vinho(Taca)...................................9,00\n"
-                            + "\n"
-                            + "---------------------------------------------------");
-                    System.out.println("Deseja pedir alguma bebida?");
-                    char continuarBebidas = entrada.next().charAt(0);
-                    if (continuarBebidas == 'S' || continuarBebidas == 's') {
-                        Bebidas.getListaBebidas(listaBebidas);
+                char inicializarbebida = 0;
+                System.out.println("\n---------------------------\n"
+                        + "Deseja pedir alguma bebida? (S ou N): ");
+                inicializarbebida = entrada.next().charAt(0);
+                if (inicializarbebida == 'S' || inicializarbebida == 's') {
+                    while (continuarPedido2) {
+                        Bebidas.exibirCardapioBebidas();
                         System.out.println("Digite o numero correspondente a bebida que voce ira pedir: ");
                         comando = entrada.nextInt();
                         System.out.println("Digite o tamanho (1 - Pequena, 2 - Media ou 3 - Grande) : ");
@@ -151,24 +155,46 @@ public class Pizzaria {
                         String tamanho = qTamanho1 == 1 ? "Pequena" : (qTamanho1 == 2 ? "Media" : "Grande");
                         System.out.println("Digite a quantidade:");
                         int quantidade1 = entrada.nextInt();
-
                         switch (comando) {
                             case 1:
-                                Bebidas Agua = new Bebidas("Agua mineral", 3.5, tamanho, quantidade1, listaBebidas);
+                                Bebidas Agua = new Bebidas("Agua Mineral", 3.5, tamanho, quantidade1, listaBebidas);
+                                valorTotalConta += Agua.getValor();
                                 break;
                             case 2:
                                 Bebidas Refrigerante = new Bebidas("Refigerante", 4.5, tamanho, quantidade1, listaBebidas);
+                                valorTotalConta += Refrigerante.getValor();
                                 break;
                             case 3:
-                                Bebidas Vinho = new Bebidas("Vinho", 4.5, tamanho, quantidade1, listaBebidas);
+                                Bebidas SucoNatural = new Bebidas("Suco Natural", 6.0, tamanho, quantidade1, listaBebidas);
+                                valorTotalConta += SucoNatural.getValor();
+                                break;
+                            case 4:
+                                Bebidas Vinho = new Bebidas("Vinho", 9.0, tamanho, quantidade1, listaBebidas);
+                                valorTotalConta += Vinho.getValor();
+                                break;
                             default:
-                                System.out.println("Comando inválido.");
+                                System.out.println("Opcao invalida.");
+                                break;
                         }
+                        System.out.println("Deseja pedir mais bebidas? (S ou N): ");
+                        char continuar = entrada.next().charAt(0);
+                        continuarPedido2 = (continuar == 'S' || continuar == 's');
                     }
-                    char continuar = entrada.next().charAt(0);
-                    continuarPedido2 = (continuar == 'S' || continuar == 's');
-                    Bebidas.getBebidas(listaBebidas, comando);
+                    System.out.println("");
+                    Bebidas.getListaBebidas(listaBebidas);
                 }
+                System.out.println("\n\n|              ---               |\n            Sua conta");
+                System.out.println("\n---------------------------\n"
+                        + "Seus pedidos de Pizzas : ");
+                Pizzas.getListaPizzas(listaPizzas);
+                System.out.println("\n---------------------------\n"
+                        + "Seus pedidos de Bebidas : ");
+                Bebidas.getListaBebidas(listaBebidas);
+                System.out.println("\n---------------------------\n"
+                        + "O Total do Pedido deu : R$" + df.format(valorTotalConta)
+                        + "\nDigite qualquer tecla para pagar sua conta : "
+                        +"\n---------------------------\n               Fim");
+                String fim = entrada.nextLine();
                 break;
 
             case 2:
@@ -178,11 +204,11 @@ public class Pizzaria {
                 Joao.addFuncionario(listaFuncionarios);
                 Gerente Kaiky = new Gerente(1234, "Gerente", 12000, "Kaiky");
                 Kaiky.addFuncionario(listaFuncionarios);
-                
+
                 //Criacao de uma senha para os gerentes
                 int senha = 1234;
                 //Criacao de uma variavel para controle de tentativas da senha
-                int continuarSenha = 1;     
+                int continuarSenha = 1;
                 //Criacao de uma var para controle da interface do Gerente
                 boolean senhaValida = false;
                 //While para tentativa da senha
@@ -201,22 +227,22 @@ public class Pizzaria {
                 }
                 //While para controle da interface do Gerente
                 while (true) {
-                    System.out.print("\n========= OPCOES ==========\n" +
-                                    "1 - Adicionar Funcionario  \n" +
-                                    "2 - Remover Funcionario    \n" +
-                                    "3 - Lista de Funcionarios  \n" +
-                                    "===========================\n" +
-                                    ">> ");
+                    System.out.print("\n========= OPCOES ==========\n"
+                            + "1 - Adicionar Funcionario  \n"
+                            + "2 - Remover Funcionario    \n"
+                            + "3 - Lista de Funcionarios  \n"
+                            + "===========================\n"
+                            + ">> ");
                     int comando1 = entrada.nextInt();
 
                     switch (comando1) {
                         //Adicionar Funcionario
                         case 1:
-                            System.out.println("Qual o nome do funcionario(a)?");
+                            System.out.println("\nQual o nome do funcionario(a)?");
                             String nome = entrada.next();
-                            System.out.println("Qual o cargo do funcionario(a)?");
+                            System.out.println("\nQual o cargo do funcionario(a)?");
                             String cargo = entrada.next();
-                            System.out.println("Qual o salario do funcionario(a)?");
+                            System.out.println("\nQual o salario do funcionario(a)?");
                             double salario = entrada.nextDouble();
 
                             Funcionarios novoFuncionario = new Funcionarios(cargo, salario, nome);
@@ -225,10 +251,9 @@ public class Pizzaria {
                             break;
                         //Remover Funcionario
                         case 2:
-                            System.out.println("Qual funcionario(a) sera removido?");
+                            System.out.println("\nQual funcionario(a) sera removido?");
                             nome = entrada.next();
                             Kaiky.removerFuncionario(listaFuncionarios, nome);
-                            System.out.println("Funcionario(a) removido com sucesso.\n");
                             break;
                         //Lista de Funcionarios
                         case 3:
@@ -236,16 +261,16 @@ public class Pizzaria {
                             Funcionarios.getListaFuncionarios(listaFuncionarios);
                             break;
 
-
                         default:
                             System.out.println("Opcao invalida. Tente novamente.");
+                            break;
                     }
 
-                    System.out.print("\n========= OPCOES ==========\n" +
-                                        "1 - Voltar menu anterior\n" +
-                                        "2 - Fechar o programa\n" +
-                                        "===========================\n" +
-                                        ">> ");
+                    System.out.print("\n========= OPCOES ==========\n"
+                            + "1 - Voltar menu anterior\n"
+                            + "2 - Fechar o programa\n"
+                            + "===========================\n"
+                            + ">> ");
                     int continuar = entrada.nextInt();
                     if (continuar != 1) {
                         System.out.println("Programa encerrado.");
