@@ -216,7 +216,6 @@ public class Pizzaria {
                 Bebidas.getListaBebidas(listaBebidas);
                 System.out.println("\n\n     ---------------------------------------------------\n\n"
                         + "     O Total do Pedido deu : R$" + df.format(valorTotalConta)
-                        + "\n     Digite qualquer tecla para pagar sua conta : "
                         + "\n\n     ---------------------------------------------------\n                           Fim");
                 String fim = entrada.nextLine();
                 break;
