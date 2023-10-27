@@ -63,14 +63,6 @@ public class Bebidas {
     }
 
     //metodos
-    public void removerBebidas(ArrayList<Bebidas> listaBebidas, int index) {
-        if (index >= 0 && index < listaBebidas.size()) {
-            listaBebidas.remove(index);
-        } else {
-            System.out.println("O indice especificado e invalido!");
-        }
-    }
-
     public String toString() {
         String saida;
         saida = this.nome + " -  R$" + df.format(this.valor) + " - " + this.tamanho;

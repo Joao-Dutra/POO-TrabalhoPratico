@@ -111,7 +111,7 @@ public class Pizzas {
     }
 
     private boolean mensagemExibida = false;
-
+    //Concertar isso
     public void addIngredientesPizza(Ingredientes ingredienteadicionado) {
         int index = 0;
         while (index < inginseridos.length) {
@@ -201,7 +201,9 @@ public class Pizzas {
                 + "     P R$46 - M R$61 - G R$76: \n"
                 + "     Pepperoni, Cogumelos, Pimentoees, Cebola roxa, \n"
                 + "     Azeitonas pretas, Mussarela.\n"
-                + "     \n"
+                + "     \n"              
+                + "  9. Crie sua propria Pizza!:\n"
+                + "     Com ate 7 ingredientes. \n"
                 + "     ---------------------------------------------------\n\n ");
     }
 
