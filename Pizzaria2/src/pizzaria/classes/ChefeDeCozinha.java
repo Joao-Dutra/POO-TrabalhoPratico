@@ -1,20 +1,26 @@
 package pizzaria.classes;
 
 public class ChefeDeCozinha extends Cozinheiro {
-    
-    private boolean criarCardapios;
-   
-    public ChefeDeCozinha(String cargo, double salario, String nome){
-          super(cargo,salario,nome);
-          this.criarCardapios = true;
+
+    private String acessoCardapios;
+
+    public ChefeDeCozinha(String cargo, double salario, String nome, String acessoCardapios) {
+        super(cargo, salario, nome);
+        this.acessoCardapios = acessoCardapios;
     }
 
-    public boolean isCriarCardapios() {
-        return criarCardapios;
+    public String getAcessoCardapios() {
+        return acessoCardapios;
     }
 
-    public void setCriarCardapios(boolean criarCardapios) {
-        this.criarCardapios = criarCardapios;
+    public void setAcessoCardapios(String acessoCardapios) {
+        this.acessoCardapios = acessoCardapios;
+    }
+
+    @Override
+    public double calculoSalario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // salario * % pizzas vendidas
     }
     
 }

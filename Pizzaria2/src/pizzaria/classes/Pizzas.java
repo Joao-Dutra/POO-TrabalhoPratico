@@ -103,10 +103,6 @@ public class Pizzas {
         }
     }
 
-    public void addValorPizzaPredefinida(double valor) {
-        this.valor += this.quantidade * valor;
-    }
-
     public void addIngredientesPizza(Ingredientes ingredienteadicionado) {
         if (ingredienteadicionado == null) {
             System.out.print("");
@@ -122,6 +118,6 @@ public class Pizzas {
             }
             index++;
         }
-        System.out.println("Ingrediente não adicionado: O limite de ingredientes foi atingido!");
+        System.out.println("Ingrediente nao adicionado: O limite de ingredientes foi atingido!");
     }
 }

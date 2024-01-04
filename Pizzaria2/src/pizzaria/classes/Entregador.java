@@ -1,17 +1,11 @@
 package pizzaria.classes;
 
-public class Entregador extends Funcionarios implements Terceirizacao {
-    
-    private int entregasPedidos;
-    
-    public Entregador(String cargo, double salario, String nome){
-        super(cargo,salario,nome);
-    }
+public class Entregador extends Funcionarios implements FuncionariosTercerizado {
 
-    @Override
-    public double calculoSalarioTercerizado() {
-        int salarioFinal = (int) (super.getSalario() + (this.entregasPedidos * 3));
-        return salarioFinal;
+    private int entregasPedidos;
+
+    public Entregador(String cargo, double salario, String nome) {
+        super(cargo, salario, nome);
     }
 
     public int getEntregasPedidos() {
@@ -24,7 +18,14 @@ public class Entregador extends Funcionarios implements Terceirizacao {
 
     @Override
     public double calculoSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int salarioFinal = (int) (super.getSalario() + (this.entregasPedidos * 3));
+        return salarioFinal;
     }
-    
+
+    @Override
+    public double calculoSalarioTercerizado() {
+        // salario * taxa tercerizacao
+       return 1;
+    }
+
 }

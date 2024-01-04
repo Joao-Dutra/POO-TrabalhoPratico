@@ -3,11 +3,9 @@ package pizzaria.classes;
 public abstract class Funcionarios {
 
     //atributos
-    //validar esse cargo ai
     private String cargo;
     private double salario;
     private String nome;
-    private boolean permissaoFuncionario;
 
     //getters and setters
     public String getCargo() {
@@ -39,15 +37,21 @@ public abstract class Funcionarios {
         this.cargo = cargo;
         this.salario = salario;
         this.nome = nome;
-        this.permissaoFuncionario = true;
     }
     //Realmente Utilizar 2 construtores!
     public Funcionarios() {
         this.cargo = null;
         this.salario = 0;
         this.nome = null;
-        this.permissaoFuncionario = true;
+    }
+              
+    @Override
+    public String toString(){
+                return "Nome: "+ this.nome +
+                "\nCargo: "+ this.cargo +
+                "\nSalário: R$"+ this.salario;
     }
     
     public abstract double calculoSalario();
+    
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Gerente extends Funcionarios {
 
     private int senha;
-    private boolean permissaoGerente;
 
     public int getSenha() {
         return senha;
@@ -18,14 +17,11 @@ public class Gerente extends Funcionarios {
     public Gerente(int senha, String cargo, double salario, String nome) {
         super(cargo, salario, nome);
         this.senha = senha;
-        this.permissaoGerente = true;
-
     }
 
     public Gerente() {
         super();
         this.senha = 0;
-        this.permissaoGerente = true;
     }
 
     public void addFuncionario(ArrayList<Funcionarios> listaFuncionarios) {
@@ -57,4 +53,5 @@ public class Gerente extends Funcionarios {
     public double calculoSalario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }
