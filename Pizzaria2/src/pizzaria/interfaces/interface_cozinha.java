@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pizzaria.interfaces;
-
+import java.awt.Color;
 /**
  *
  * @author usuario
@@ -30,6 +30,17 @@ public class interface_cozinha extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         pizza_logopequena = new javax.swing.JLabel();
         b_retornar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelaPizzas = new javax.swing.JTable();
+        pizza_fachada1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        pizza_fachada2 = new javax.swing.JLabel();
+        titulo_listapizzas = new javax.swing.JLabel();
+        titulo_listaingredientes = new javax.swing.JLabel();
+        b_cardapio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,28 +59,191 @@ public class interface_cozinha extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(147, 26, 37));
+
+        tabelaPizzas.setBackground(new java.awt.Color(245, 239, 239));
+        tabelaPizzas.setForeground(new java.awt.Color(0, 0, 0));
+        tabelaPizzas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Nome"
+            }
+        ));
+        tabelaPizzas.setRowHeight(30);
+        jScrollPane2.setViewportView(tabelaPizzas);
+
+        pizza_fachada1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pizzaria.icons/PIZZA1.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(pizza_fachada1)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(pizza_fachada1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(147, 26, 37));
+
+        jTable3.setBackground(new java.awt.Color(245, 239, 239));
+        jTable3.setForeground(new java.awt.Color(0, 0, 0));
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nome", "Valor"
+            }
+        ));
+        jTable3.setRowHeight(30);
+        jScrollPane3.setViewportView(jTable3);
+
+        pizza_fachada2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pizzaria.icons/PIZZA2.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(pizza_fachada2)
+                        .addContainerGap(18, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(pizza_fachada2))
+        );
+
+        titulo_listapizzas.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        titulo_listapizzas.setForeground(new java.awt.Color(245, 239, 239));
+        titulo_listapizzas.setText("Pizzas Disponíveis:");
+
+        titulo_listaingredientes.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
+        titulo_listaingredientes.setForeground(new java.awt.Color(245, 239, 239));
+        titulo_listaingredientes.setText("Ingredientes no Estoque:");
+
+        b_cardapio.setBackground(new java.awt.Color(233, 113, 113));
+        b_cardapio.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        b_cardapio.setForeground(new java.awt.Color(245, 239, 239));
+        b_cardapio.setText("Editar Cardápio");
+        b_cardapio.setBorderPainted(false);
+        b_cardapio.setFocusPainted(false);
+        b_cardapio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b_cardapioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b_cardapioMouseExited(evt);
+            }
+        });
+        b_cardapio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cardapioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(764, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pizza_logopequena)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(b_retornar)
-                        .addGap(16, 16, 16))))
+                    .addComponent(b_retornar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(b_cardapio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(titulo_listapizzas)
+                .addGap(79, 79, 79)
+                .addComponent(titulo_listaingredientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pizza_logopequena)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pizza_logopequena)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 649, Short.MAX_VALUE)
-                .addComponent(b_retornar)
-                .addGap(16, 16, 16))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pizza_logopequena)
+                    .addComponent(titulo_listapizzas, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(titulo_listaingredientes, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(13, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(b_cardapio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(b_retornar)
+                        .addGap(16, 16, 16))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,6 +265,20 @@ public class interface_cozinha extends javax.swing.JFrame {
         i_areaFuncionarios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_b_retornarActionPerformed
+
+    private void b_cardapioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_cardapioMouseEntered
+        b_cardapio.setBackground(new Color(233, 143, 143));
+    }//GEN-LAST:event_b_cardapioMouseEntered
+
+    private void b_cardapioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_cardapioMouseExited
+        b_cardapio.setBackground(new Color(233, 113, 113));
+    }//GEN-LAST:event_b_cardapioMouseExited
+
+    private void b_cardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cardapioActionPerformed
+        interface_cozinha i_cozinha = new interface_cozinha();
+        i_cozinha.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_b_cardapioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,8 +316,19 @@ public class interface_cozinha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_cardapio;
     private javax.swing.JButton b_retornar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JLabel pizza_fachada1;
+    private javax.swing.JLabel pizza_fachada2;
     private javax.swing.JLabel pizza_logopequena;
+    private javax.swing.JTable tabelaPizzas;
+    private javax.swing.JLabel titulo_listaingredientes;
+    private javax.swing.JLabel titulo_listapizzas;
     // End of variables declaration//GEN-END:variables
 }
