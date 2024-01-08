@@ -228,13 +228,21 @@ public class interface_senhaGerencia extends javax.swing.JFrame {
     }//GEN-LAST:event_b_retornarActionPerformed
 
     private void b_acessarGerenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_acessarGerenciaActionPerformed
-        if (Integer.parseInt(senhaField.getText()) == 1234) {
+       try {
+        int senhaDigitada = Integer.parseInt(senhaField.getText());
+        if (senhaDigitada == 1234) {
             interface_gerencia i_gerencia = new interface_gerencia();
             i_gerencia.setVisible(true);
             this.dispose();
-        }else{
-            //Tratamento de exceção e arrumar senha predefinida ali
+        } else {
+            // Tratamento de exceção para senha incorreta
+            // Exiba uma mensagem ou realize outra ação aqui
         }
+    } catch (NumberFormatException e) {
+        // Tratamento de exceção para entrada não inteira
+        // Exiba uma mensagem ou realize outra ação aqui
+    }
+
     }//GEN-LAST:event_b_acessarGerenciaActionPerformed
 
     /**

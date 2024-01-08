@@ -4,8 +4,6 @@
  */
 package pizzaria.interfaces;
 
-import java.awt.Color;
-
 /**
  *
  * @author usuario
@@ -15,7 +13,6 @@ public class interface_areaClientes extends javax.swing.JFrame {
     /**
      * Creates new form interface_areaClientes
      */
-
     public interface_areaClientes() {
         initComponents();
         setLocationRelativeTo(null);
@@ -31,29 +28,15 @@ public class interface_areaClientes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        b_retornar = new javax.swing.JButton();
-        titulo_listafuncionarios2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jlNome = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jlNome1 = new javax.swing.JLabel();
-        jlNome2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jlNome3 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jlNome4 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        b_cadastrarPedido = new javax.swing.JButton();
-        b_atualizarPedido = new javax.swing.JButton();
-        b_excluirPedido = new javax.swing.JButton();
         pizza_logopequena = new javax.swing.JLabel();
+        b_retornar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(85, 0, 0));
+
+        pizza_logopequena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pizzaria.icons/pizza_logo_pequena.png"))); // NOI18N
 
         b_retornar.setBackground(new java.awt.Color(85, 0, 0));
         b_retornar.setForeground(new java.awt.Color(245, 239, 239));
@@ -66,255 +49,33 @@ public class interface_areaClientes extends javax.swing.JFrame {
             }
         });
 
-        titulo_listafuncionarios2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 48)); // NOI18N
-        titulo_listafuncionarios2.setForeground(new java.awt.Color(245, 239, 239));
-        titulo_listafuncionarios2.setText("Pedidos :");
-
-        jPanel2.setBackground(new java.awt.Color(147, 26, 37));
-
-        jlNome.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
-        jlNome.setForeground(new java.awt.Color(245, 239, 239));
-        jlNome.setText("Selecione a Pizza :");
-
-        jComboBox1.setBackground(new java.awt.Color(233, 113, 113));
-        jComboBox1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(245, 239, 239));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCheckBox1.setForeground(new java.awt.Color(245, 239, 239));
-
-        jlNome1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jlNome1.setForeground(new java.awt.Color(245, 239, 239));
-        jlNome1.setText("Tamanho :");
-
-        jlNome2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jlNome2.setForeground(new java.awt.Color(245, 239, 239));
-        jlNome2.setText("Quantidade :");
-
-        jComboBox2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(245, 239, 239));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
-
-        jlNome3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jlNome3.setForeground(new java.awt.Color(245, 239, 239));
-        jlNome3.setText("Borda :");
-
-        jCheckBox2.setForeground(new java.awt.Color(245, 239, 239));
-
-        jTable1.setBackground(new java.awt.Color(245, 239, 239));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "N° Pedido", "Pizza", "Tamanho", "Quantidade", "Borda", "Bebida", "Tamanho", "Quantidade"
-            }
-        ));
-        jTable1.setRowHeight(20);
-        jScrollPane1.setViewportView(jTable1);
-
-        jlNome4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jlNome4.setForeground(new java.awt.Color(245, 239, 239));
-        jlNome4.setText("Bebida :");
-
-        jCheckBox3.setForeground(new java.awt.Color(245, 239, 239));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlNome)
-                            .addComponent(jComboBox1, 0, 373, Short.MAX_VALUE))
-                        .addGap(117, 117, 117)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlNome1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlNome2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlNome3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jCheckBox3)
-                                .addComponent(jCheckBox2))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)))
-                .addGap(78, 78, 78))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jlNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlNome1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlNome2)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlNome3, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jlNome4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        b_cadastrarPedido.setBackground(new java.awt.Color(233, 113, 113));
-        b_cadastrarPedido.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        b_cadastrarPedido.setForeground(new java.awt.Color(245, 239, 239));
-        b_cadastrarPedido.setText("Cadastrar");
-        b_cadastrarPedido.setBorderPainted(false);
-        b_cadastrarPedido.setFocusPainted(false);
-        b_cadastrarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                b_cadastrarPedidoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                b_cadastrarPedidoMouseExited(evt);
-            }
-        });
-        b_cadastrarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_cadastrarPedidoActionPerformed(evt);
-            }
-        });
-
-        b_atualizarPedido.setBackground(new java.awt.Color(233, 113, 113));
-        b_atualizarPedido.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        b_atualizarPedido.setForeground(new java.awt.Color(245, 239, 239));
-        b_atualizarPedido.setText("Atualizar");
-        b_atualizarPedido.setBorderPainted(false);
-        b_atualizarPedido.setFocusPainted(false);
-        b_atualizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                b_atualizarPedidoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                b_atualizarPedidoMouseExited(evt);
-            }
-        });
-        b_atualizarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_atualizarPedidoActionPerformed(evt);
-            }
-        });
-
-        b_excluirPedido.setBackground(new java.awt.Color(233, 113, 113));
-        b_excluirPedido.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        b_excluirPedido.setForeground(new java.awt.Color(245, 239, 239));
-        b_excluirPedido.setText("Deletar");
-        b_excluirPedido.setBorderPainted(false);
-        b_excluirPedido.setFocusPainted(false);
-        b_excluirPedido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                b_excluirPedidoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                b_excluirPedidoMouseExited(evt);
-            }
-        });
-        b_excluirPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_excluirPedidoActionPerformed(evt);
-            }
-        });
-
-        pizza_logopequena.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pizzaria.icons/pizza_logo_pequena.png"))); // NOI18N
+        jLabel1.setText("Abrir um novo pedido ou não para montagem dos pedidos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(764, Short.MAX_VALUE)
                 .addComponent(pizza_logopequena)
-                .addGap(235, 235, 235)
-                .addComponent(titulo_listafuncionarios2)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(b_retornar)
-                .addGap(17, 17, 17))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(b_cadastrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(b_atualizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(b_excluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pizza_logopequena)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 648, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(titulo_listafuncionarios2)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(b_retornar)
-                                .addGap(26, 26, 26))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pizza_logopequena)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_atualizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_cadastrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_excluirPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(b_retornar)
+                    .addComponent(jLabel1))
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -336,46 +97,6 @@ public class interface_areaClientes extends javax.swing.JFrame {
         i_entrada.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_b_retornarActionPerformed
-
-    private void b_cadastrarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_cadastrarPedidoMouseEntered
-        b_cadastrarPedido.setBackground(new Color(233, 143, 143));
-    }//GEN-LAST:event_b_cadastrarPedidoMouseEntered
-
-    private void b_cadastrarPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_cadastrarPedidoMouseExited
-        b_cadastrarPedido.setBackground(new Color(233, 113, 113));
-    }//GEN-LAST:event_b_cadastrarPedidoMouseExited
-
-    private void b_cadastrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastrarPedidoActionPerformed
-
-    }//GEN-LAST:event_b_cadastrarPedidoActionPerformed
-
-    private void b_atualizarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_atualizarPedidoMouseEntered
-        b_atualizarPedido.setBackground(new Color(233, 143, 143));
-    }//GEN-LAST:event_b_atualizarPedidoMouseEntered
-
-    private void b_atualizarPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_atualizarPedidoMouseExited
-        b_atualizarPedido.setBackground(new Color(233, 113, 113));
-    }//GEN-LAST:event_b_atualizarPedidoMouseExited
-
-    private void b_atualizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_atualizarPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_atualizarPedidoActionPerformed
-
-    private void b_excluirPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_excluirPedidoMouseEntered
-        b_excluirPedido.setBackground(new Color(233, 143, 143));
-    }//GEN-LAST:event_b_excluirPedidoMouseEntered
-
-    private void b_excluirPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_excluirPedidoMouseExited
-        b_excluirPedido.setBackground(new Color(233, 113, 113));
-    }//GEN-LAST:event_b_excluirPedidoMouseExited
-
-    private void b_excluirPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_excluirPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_excluirPedidoActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,25 +134,9 @@ public class interface_areaClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton b_atualizarPedido;
-    private javax.swing.JButton b_cadastrarPedido;
-    private javax.swing.JButton b_excluirPedido;
     private javax.swing.JButton b_retornar;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel jlNome;
-    private javax.swing.JLabel jlNome1;
-    private javax.swing.JLabel jlNome2;
-    private javax.swing.JLabel jlNome3;
-    private javax.swing.JLabel jlNome4;
     private javax.swing.JLabel pizza_logopequena;
-    private javax.swing.JLabel titulo_listafuncionarios2;
     // End of variables declaration//GEN-END:variables
 }
