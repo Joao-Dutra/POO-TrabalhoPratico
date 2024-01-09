@@ -19,8 +19,9 @@ public class ChefeDeCozinha extends Cozinheiro {
 
     @Override
     public double calculoSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        // salario * % pizzas vendidas
+        double saida;
+        saida = super.getSalario() + 800;
+        return saida;
     }
-    
+
 }

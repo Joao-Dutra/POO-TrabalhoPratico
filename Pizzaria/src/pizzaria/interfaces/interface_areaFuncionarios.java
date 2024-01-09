@@ -4,8 +4,15 @@
  */
 package pizzaria.interfaces;
 
+import controller.ListaFuncionarios;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import pizzaria.classes.ChefeDeCozinha;
+import pizzaria.classes.Funcionarios;
+import pizzaria.classes.Gerente;
 
 /**
  *
@@ -14,7 +21,7 @@ import javax.swing.JOptionPane;
 public class interface_areaFuncionarios extends javax.swing.JFrame {
 
     String frasedeacesso = "";
-
+    private ListaFuncionarios funcionarios = new ListaFuncionarios();
     /**
      * Creates new form interface_areafuncionarios
      */
@@ -42,8 +49,7 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
         pizza_logopequena = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         titulo_listafuncionarios = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,7 +173,7 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
 
         titulo_listafuncionarios.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 48)); // NOI18N
         titulo_listafuncionarios.setForeground(new java.awt.Color(245, 239, 239));
-        titulo_listafuncionarios.setText("Funcionários Ativos:");
+        titulo_listafuncionarios.setText("Funcionários - HUB");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -184,38 +190,7 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
                 .addComponent(titulo_listafuncionarios))
         );
 
-        jTable1.setBackground(new java.awt.Color(245, 239, 239));
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nome", "Cargo"
-            }
-        ));
-        jTable1.setRowHeight(30);
-        jScrollPane1.setViewportView(jTable1);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pizzaria.icons/funcionarios-hub.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,22 +199,22 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(42, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                        .addGap(1, 1, 1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -247,7 +222,7 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +264,7 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
         frasedeacesso = JOptionPane.showInputDialog("O Chefe da Cozinha, solicitou a frase de acesso : ");
 
         try {
-            if ("Execellence".equalsIgnoreCase(frasedeacesso.trim())) {
+            if ("Excellence".equalsIgnoreCase(frasedeacesso.trim())) {
                 interface_cozinha i_cozinha = new interface_cozinha();
                 i_cozinha.setVisible(true);
                 this.dispose();
@@ -298,9 +273,10 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
                         "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocorreu um erro.",
+            JOptionPane.showMessageDialog(this, "Voce ignorou o Chefe.",
                     "Erro de Entrada", JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_b_cozinhaActionPerformed
 
     private void b_cozinhaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_cozinhaMouseEntered
@@ -361,11 +337,10 @@ public class interface_areaFuncionarios extends javax.swing.JFrame {
     private javax.swing.JButton b_retornar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel pizza_logopequena;
     private javax.swing.JLabel titulo_listafuncionarios;
     // End of variables declaration//GEN-END:variables

@@ -8,8 +8,9 @@ public class Cozinheiro extends Funcionarios {
 
     @Override
     public double calculoSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        // salario * % pizzas vendidas
+        double saida;
+        saida = super.getSalario() + 400;
+        return saida;
     }
 
 }

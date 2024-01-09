@@ -9,8 +9,9 @@ public class Barista extends Funcionarios {
 
     @Override
     public double calculoSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        // salario * % bebidas vendidas
+        double saida;
+        saida = super.getSalario() + 200;
+        return saida;
     }
 
 }

@@ -1,6 +1,5 @@
 package pizzaria.classes;
 
-import java.util.ArrayList;
 
 public class Ingredientes {
 
@@ -26,10 +25,9 @@ public class Ingredientes {
     }
     //construtores
 
-    public Ingredientes(String nome, double valor, ArrayList<Ingredientes> listaIngredientes) {
+    public Ingredientes(String nome, double valor) {
         this.nome = nome;
         this.valor = valor;
-        listaIngredientes.add(this);
     }
 
     public Ingredientes() {

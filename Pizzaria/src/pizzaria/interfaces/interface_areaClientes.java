@@ -4,7 +4,19 @@
  */
 package pizzaria.interfaces;
 
+import controller.ListaFuncionarios;
+import controller.ListaPedidos;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import pizzaria.classes.Barista;
+import pizzaria.classes.Cozinheiro;
+import pizzaria.classes.Entregador;
+import pizzaria.classes.Funcionarios;
+import pizzaria.classes.Garcom;
+import pizzaria.classes.Pedidos;
 
 /**
  *
@@ -15,6 +27,8 @@ public class interface_areaClientes extends javax.swing.JFrame {
     /**
      * Creates new form interface_areaClientes
      */
+    private ListaPedidos pedidos = new ListaPedidos();
+    private int linhaSelecionada;
 
     public interface_areaClientes() {
         initComponents();
@@ -39,19 +53,25 @@ public class interface_areaClientes extends javax.swing.JFrame {
         titulo_listafuncionarios2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jlNome = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jPizzaBox = new javax.swing.JComboBox<>();
         jlNome1 = new javax.swing.JLabel();
         jlNome2 = new javax.swing.JLabel();
         jlNome3 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBorda = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jlNome4 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jSpinner1 = new javax.swing.JSpinner();
+        jCheckTPp = new javax.swing.JCheckBox();
+        jCheckTPg = new javax.swing.JCheckBox();
+        jCheckTPm = new javax.swing.JCheckBox();
+        jSpinP = new javax.swing.JSpinner();
+        jBebidaBox = new javax.swing.JComboBox<>();
+        jlNome5 = new javax.swing.JLabel();
+        jCheckTBp = new javax.swing.JCheckBox();
+        jCheckTBm = new javax.swing.JCheckBox();
+        jCheckTBg = new javax.swing.JCheckBox();
+        jlNome6 = new javax.swing.JLabel();
+        jSpinB = new javax.swing.JSpinner();
         b_cadastrarPedido = new javax.swing.JButton();
         b_atualizarPedido = new javax.swing.JButton();
         b_excluirPedido = new javax.swing.JButton();
@@ -78,67 +98,73 @@ public class interface_areaClientes extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(147, 26, 37));
 
-        jlNome.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        jlNome.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jlNome.setForeground(new java.awt.Color(245, 239, 239));
         jlNome.setText("Selecione a Pizza :");
 
-        jComboBox1.setBackground(new java.awt.Color(233, 113, 113));
-        jComboBox1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(245, 239, 239));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jPizzaBox.setBackground(new java.awt.Color(233, 113, 113));
+        jPizzaBox.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPizzaBox.setForeground(new java.awt.Color(245, 239, 239));
+        jPizzaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Margherita", "Pepperoni", "Calabresa", "Vegetariana", "Frango com Catupiry", "Quatro Queijos", "Pizza do Chef" }));
+        jPizzaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jPizzaBoxActionPerformed(evt);
             }
         });
 
-        jlNome1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jlNome1.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jlNome1.setForeground(new java.awt.Color(245, 239, 239));
         jlNome1.setText("Tamanho :");
 
-        jlNome2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jlNome2.setFont(new java.awt.Font("Berlin Sans FB", 0, 17)); // NOI18N
         jlNome2.setForeground(new java.awt.Color(245, 239, 239));
         jlNome2.setText("Quantidade :");
 
-        jlNome3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jlNome3.setFont(new java.awt.Font("Berlin Sans FB", 0, 17)); // NOI18N
         jlNome3.setForeground(new java.awt.Color(245, 239, 239));
-        jlNome3.setText("Borda :");
+        jlNome3.setText("Com Borda :");
 
-        jCheckBox2.setForeground(new java.awt.Color(245, 239, 239));
+        jCheckBorda.setForeground(new java.awt.Color(147, 26, 37));
+        jCheckBorda.setText(".");
+        jCheckBorda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBordaActionPerformed(evt);
+            }
+        });
 
         jTable1.setBackground(new java.awt.Color(245, 239, 239));
         jTable1.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "N° Pedido", "Pizza", "Tamanho", "Quantidade", "Borda", "Bebida", "Tamanho", "Quantidade"
+                "N° Pedido", "Pizza", "Tamanho", "Quantidade", "Borda", "Bebida", "Tamanho", "Quantidade", "Valor Pedido"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -147,99 +173,173 @@ public class interface_areaClientes extends javax.swing.JFrame {
         jlNome4.setForeground(new java.awt.Color(245, 239, 239));
         jlNome4.setText("Bebida :");
 
-        jCheckBox3.setForeground(new java.awt.Color(245, 239, 239));
-
-        jCheckBox1.setText("P");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCheckTPp.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckTPp.setText("P");
+        jCheckTPp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCheckTPpActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("G");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        jCheckTPg.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckTPg.setText("G");
+        jCheckTPg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                jCheckTPgActionPerformed(evt);
             }
         });
 
-        jCheckBox5.setText("M");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        jCheckTPm.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckTPm.setText("M");
+        jCheckTPm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                jCheckTPmActionPerformed(evt);
             }
         });
+
+        jBebidaBox.setBackground(new java.awt.Color(233, 113, 113));
+        jBebidaBox.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jBebidaBox.setForeground(new java.awt.Color(245, 239, 239));
+        jBebidaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agua", "Cafe", "Refri", "Capuccino", "Cha", "Suco", "Mokha", "Vinho" }));
+        jBebidaBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBebidaBoxActionPerformed(evt);
+            }
+        });
+
+        jlNome5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jlNome5.setForeground(new java.awt.Color(245, 239, 239));
+        jlNome5.setText("Tamanho :");
+
+        jCheckTBp.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckTBp.setText("P");
+        jCheckTBp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckTBpActionPerformed(evt);
+            }
+        });
+
+        jCheckTBm.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckTBm.setText("M");
+        jCheckTBm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckTBmActionPerformed(evt);
+            }
+        });
+
+        jCheckTBg.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckTBg.setText("G");
+        jCheckTBg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckTBgActionPerformed(evt);
+            }
+        });
+
+        jlNome6.setFont(new java.awt.Font("Berlin Sans FB", 0, 17)); // NOI18N
+        jlNome6.setForeground(new java.awt.Color(245, 239, 239));
+        jlNome6.setText("Quantidade :");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlNome)
-                            .addComponent(jComboBox1, 0, 271, Short.MAX_VALUE))
-                        .addGap(243, 243, 243)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlNome3)
-                            .addComponent(jlNome1)
-                            .addComponent(jlNome2)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jlNome4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jSpinner1)
-                        .addGap(46, 46, 46))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox2)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox4)))
-                        .addGap(0, 9, Short.MAX_VALUE)))
-                .addGap(16, 16, 16))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jlNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPizzaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jlNome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckTPp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckTPm)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckTPg))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlNome3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSpinP, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBorda))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(jlNome4)
+                                .addGap(46, 46, 46))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBebidaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jlNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckTBp)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckTBm)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckTBg))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jlNome6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSpinB, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jlNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlNome1)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlNome2)
-                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jlNome3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jlNome4))
-                        .addGap(18, 18, 18)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(38, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlNome1)
+                                    .addComponent(jCheckTPp)
+                                    .addComponent(jCheckTPg)
+                                    .addComponent(jCheckTPm))
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlNome2)
+                                    .addComponent(jSpinP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlNome3)
+                                    .addComponent(jCheckBorda)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jlNome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPizzaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(34, 34, 34))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlNome5)
+                                    .addComponent(jCheckTBp)
+                                    .addComponent(jCheckTBg)
+                                    .addComponent(jCheckTBm))
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlNome6)
+                                    .addComponent(jSpinB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jlNome4)
+                                .addGap(2, 2, 2)
+                                .addComponent(jBebidaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -313,17 +413,16 @@ public class interface_areaClientes extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
                         .addComponent(pizza_logopequena)
-                        .addGap(273, 273, 273)
+                        .addGap(262, 262, 262)
                         .addComponent(titulo_listafuncionarios2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(b_retornar))
+                        .addComponent(b_retornar)
+                        .addGap(9, 9, 9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addComponent(b_cadastrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(b_atualizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -336,15 +435,14 @@ public class interface_areaClientes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pizza_logopequena)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titulo_listafuncionarios2)
-                            .addComponent(b_retornar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addComponent(b_retornar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pizza_logopequena)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(33, 33, 33)
+                        .addComponent(titulo_listafuncionarios2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -383,6 +481,9 @@ public class interface_areaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_b_cadastrarPedidoMouseExited
 
     private void b_cadastrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastrarPedidoActionPerformed
+        switch(jPizzaBox.getSelectedItem().equals()){
+            
+        }
 
     }//GEN-LAST:event_b_cadastrarPedidoActionPerformed
 
@@ -410,31 +511,96 @@ public class interface_areaClientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_b_excluirPedidoActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jPizzaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPizzaBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jPizzaBoxActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-         if (jCheckBox1.isSelected()) {
-        jCheckBox4.setSelected(false);
-        jCheckBox5.setSelected(false);
+    private void jCheckTPpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTPpActionPerformed
+        if (jCheckTPp.isSelected()) {
+            jCheckTPg.setSelected(false);
+            jCheckTPm.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckTPpActionPerformed
+
+    private void jCheckTPgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTPgActionPerformed
+        if (jCheckTPg.isSelected()) {
+            jCheckTPp.setSelected(false);
+            jCheckTPm.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckTPgActionPerformed
+
+    private void jCheckTPmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTPmActionPerformed
+        if (jCheckTPm.isSelected()) {
+            jCheckTPp.setSelected(false);
+            jCheckTPg.setSelected(false);
+        }
+
+    }//GEN-LAST:event_jCheckTPmActionPerformed
+
+    private void jCheckBordaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBordaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBordaActionPerformed
+
+    private void jBebidaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBebidaBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBebidaBoxActionPerformed
+
+    private void jCheckTBpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTBpActionPerformed
+        if (jCheckTBp.isSelected()) {
+            jCheckTBm.setSelected(false);
+            jCheckTBg.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckTBpActionPerformed
+
+    private void jCheckTBmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTBmActionPerformed
+        if (jCheckTBm.isSelected()) {
+            jCheckTBp.setSelected(false);
+            jCheckTBg.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckTBmActionPerformed
+
+    private void jCheckTBgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckTBgActionPerformed
+        if (jCheckTBg.isSelected()) {
+            jCheckTBp.setSelected(false);
+            jCheckTBm.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckTBgActionPerformed
+
+    private void listarPedidos() {
+
+        ArrayList nomeColunas = new ArrayList();
+        nomeColunas.add("N° Pedido");
+        nomeColunas.add("Pizza");
+        nomeColunas.add("Tamanho");
+        nomeColunas.add("Quantidade");
+        nomeColunas.add("Borda");
+        nomeColunas.add("Bebida");
+        nomeColunas.add("Tamanho");
+        nomeColunas.add("Quantidade");
+        nomeColunas.add("Valor Pedido");
+
+        List<Object[]> dados = new ArrayList<>();
+
+        for (Pedidos pedidos : pedidos.getListaPedidos()) {
+
+            List dadosCli = new ArrayList();
+            dadosCli.add(pedidos.getNumPedidos());
+            dadosCli.add(pedidos.getPizzaPedidos());
+            dadosCli.add(pedidos.getPizzaPedidos().getTamanho());
+            dadosCli.add(pedidos.getPizzaPedidos().getQuantidade());
+            dadosCli.add(pedidos.getPizzaPedidos().isBorda());
+            dadosCli.add(pedidos.getBebidaPedidos());
+            dadosCli.add(pedidos.getBebidaPedidos().getTamanho());
+            dadosCli.add(pedidos.getBebidaPedidos().getQuantidade());
+            dadosCli.add(pedidos.getValorPedidos());
+
+            dados.add(dadosCli.toArray());
+
+        }
+
+        DefaultTableModel tabelaDefault = new DefaultTableModel(dados.toArray(new Object[dados.size()][]), nomeColunas.toArray());
+        jTable1.setModel(tabelaDefault);
     }
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-          if (jCheckBox4.isSelected()) {
-        jCheckBox1.setSelected(false);
-        jCheckBox5.setSelected(false);
-    }
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
-
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
-            if (jCheckBox5.isSelected()) {
-        jCheckBox1.setSelected(false);
-        jCheckBox4.setSelected(false);
-    }
-
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,22 +646,28 @@ public class interface_areaClientes extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jBebidaBox;
+    private javax.swing.JCheckBox jCheckBorda;
+    private javax.swing.JCheckBox jCheckTBg;
+    private javax.swing.JCheckBox jCheckTBm;
+    private javax.swing.JCheckBox jCheckTBp;
+    private javax.swing.JCheckBox jCheckTPg;
+    private javax.swing.JCheckBox jCheckTPm;
+    private javax.swing.JCheckBox jCheckTPp;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JComboBox<String> jPizzaBox;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinB;
+    private javax.swing.JSpinner jSpinP;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel jlNome;
     private javax.swing.JLabel jlNome1;
     private javax.swing.JLabel jlNome2;
     private javax.swing.JLabel jlNome3;
     private javax.swing.JLabel jlNome4;
+    private javax.swing.JLabel jlNome5;
+    private javax.swing.JLabel jlNome6;
     private javax.swing.JLabel pizza_logopequena;
     private javax.swing.JLabel titulo_listafuncionarios2;
     // End of variables declaration//GEN-END:variables

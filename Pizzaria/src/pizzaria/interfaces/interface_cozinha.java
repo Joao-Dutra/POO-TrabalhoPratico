@@ -3,7 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pizzaria.interfaces;
-import java.awt.Color;
+
+import controller.ListaIngredientes;
+import controller.ListaPizzas;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import javax.swing.table.DefaultTableModel;
+import pizzaria.classes.Funcionarios;
+import pizzaria.classes.Gerente;
+import pizzaria.classes.Ingredientes;
+import pizzaria.classes.Pizzas;
+
 /**
  *
  * @author usuario
@@ -13,9 +25,14 @@ public class interface_cozinha extends javax.swing.JFrame {
     /**
      * Creates new form interface_cozinha
      */
+    private ListaPizzas pizzas = new ListaPizzas();
+    private ListaIngredientes ingredientes = new ListaIngredientes();
+
     public interface_cozinha() {
         initComponents();
         setLocationRelativeTo(null);
+        adicionarPizzas();
+        adicionarIngredientes();
     }
 
     /**
@@ -61,32 +78,33 @@ public class interface_cozinha extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(147, 26, 37));
 
         tabelaPizzas.setBackground(new java.awt.Color(245, 239, 239));
+        tabelaPizzas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tabelaPizzas.setForeground(new java.awt.Color(0, 0, 0));
         tabelaPizzas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Nome", "Valor"
+                "Nome", "Valor ( Média <15>)"
             }
         ));
-        tabelaPizzas.setRowHeight(30);
+        tabelaPizzas.setRowHeight(50);
         jScrollPane2.setViewportView(tabelaPizzas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -112,26 +130,26 @@ public class interface_cozinha extends javax.swing.JFrame {
         jTable3.setForeground(new java.awt.Color(0, 0, 0));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Nome", "Valor"
+                "Nome", "Valor"
             }
         ));
         jTable3.setRowHeight(30);
@@ -183,7 +201,7 @@ public class interface_cozinha extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(pizza_fachada2)
-                        .addGap(96, 96, 96)
+                        .addGap(90, 90, 90)
                         .addComponent(b_retornar)
                         .addGap(16, 16, 16))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -244,6 +262,109 @@ public class interface_cozinha extends javax.swing.JFrame {
         i_areaFuncionarios.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_b_retornarActionPerformed
+
+    private void listarPizzas() {
+
+        ArrayList nomeColunas = new ArrayList();
+        nomeColunas.add("Nome");
+        nomeColunas.add("Valor (Media <15>) ");
+
+        List<Object[]> dados = new ArrayList<>();
+
+        for (Pizzas pizzas : pizzas.getListaPizzas()) {
+
+            List dadosCli = new ArrayList();
+            dadosCli.add(pizzas.getNome());
+            NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+            dadosCli.add(formatador.format(pizzas.getValor()));
+
+            dados.add(dadosCli.toArray());
+
+        }
+
+        DefaultTableModel tabelaDefault = new DefaultTableModel(dados.toArray(new Object[dados.size()][]), nomeColunas.toArray());
+        tabelaPizzas.setModel(tabelaDefault);
+    }
+
+    private void adicionarPizzas() {
+        Pizzas Margherita = new Pizzas("Margherita", 52);
+        pizzas.inserirPizzas(Margherita);
+        Pizzas Pepperoni = new Pizzas("Pepperoni", 53);
+        pizzas.inserirPizzas(Pepperoni);
+        Pizzas Calabresa = new Pizzas("Calabresa", 55);
+        pizzas.inserirPizzas(Calabresa);
+        Pizzas Vegetariana = new Pizzas("Vegetariana", 58);
+        pizzas.inserirPizzas(Vegetariana);
+        Pizzas FrangoComCatupiry = new Pizzas("Frango com Catupiry", 58);
+        pizzas.inserirPizzas(FrangoComCatupiry);
+        Pizzas Brasileira = new Pizzas("Brasileira", 58);
+        pizzas.inserirPizzas(Brasileira);
+        Pizzas QuatroQueijos = new Pizzas("Quatro Queijos", 59);
+        pizzas.inserirPizzas(QuatroQueijos);
+        Pizzas PizzaDoChef = new Pizzas("Pizza do Chef", 61);
+        pizzas.inserirPizzas(PizzaDoChef);
+        listarPizzas();
+
+    }
+
+    private void listarIngredientes() {
+
+        ArrayList nomeColunas = new ArrayList();
+        nomeColunas.add("Nome");
+        nomeColunas.add("Valor");
+
+        List<Object[]> dados = new ArrayList<>();
+
+        for (Ingredientes ingredientes : ingredientes.getListaIngredientes()) {
+
+            List dadosIngredientes = new ArrayList();
+            dadosIngredientes.add(ingredientes.getNome());
+            NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+            dadosIngredientes.add(formatador.format(ingredientes.getValor()));
+
+            dados.add(dadosIngredientes.toArray());
+
+        }
+
+        DefaultTableModel tabelaDefault = new DefaultTableModel(dados.toArray(new Object[dados.size()][]), nomeColunas.toArray());
+        jTable3.setModel(tabelaDefault);
+    }
+
+    private void adicionarIngredientes() {
+        Ingredientes MolhoDeTomate = new Ingredientes("Molho de Tomate", 2.50);
+        ingredientes.inserirIngredientes(MolhoDeTomate);
+        Ingredientes Mussarela = new Ingredientes("Mussarela", 2.50);
+        ingredientes.inserirIngredientes(Mussarela);
+        Ingredientes ManjericaoFresco = new Ingredientes("Manjericao Fresco", 2.00);
+        ingredientes.inserirIngredientes(ManjericaoFresco);
+        Ingredientes Pepperoni = new Ingredientes("Pepperoni", 3.00);
+        ingredientes.inserirIngredientes(Pepperoni);
+        Ingredientes Gorgonzola = new Ingredientes("Gorgonzola", 3.00);
+        ingredientes.inserirIngredientes(Gorgonzola);
+        Ingredientes Parmesao = new Ingredientes("Parmesao", 3.00);
+        ingredientes.inserirIngredientes(Parmesao);
+        Ingredientes Provolone = new Ingredientes("Provolone", 3.00);
+        ingredientes.inserirIngredientes(Provolone);
+        Ingredientes CalabresaFatiada = new Ingredientes("Calabresa Fatiada", 2.00);
+        ingredientes.inserirIngredientes(CalabresaFatiada);
+        Ingredientes Cebola = new Ingredientes("Cebola", 2.00);
+        ingredientes.inserirIngredientes(Cebola);
+        Ingredientes Pimentoes = new Ingredientes("Pimentoes", 2.00);
+        ingredientes.inserirIngredientes(Pimentoes);
+        Ingredientes AzeitonasPretas = new Ingredientes("Azeitonas Pretas", 2.00);
+        ingredientes.inserirIngredientes(AzeitonasPretas);
+        Ingredientes FrangoDesfiado = new Ingredientes("Frango Desfiado", 3.00);
+        ingredientes.inserirIngredientes(FrangoDesfiado);
+        Ingredientes Catupiry = new Ingredientes("Catupiry", 3.00);
+        ingredientes.inserirIngredientes(Catupiry);
+        Ingredientes Milho = new Ingredientes("Milho", 2.00);
+        ingredientes.inserirIngredientes(Milho);
+        Ingredientes CarneSecaDesfiada = new Ingredientes("Carne-Seca Desfiada", 3.00);
+        ingredientes.inserirIngredientes(CarneSecaDesfiada);
+        Ingredientes CebolaRoxa = new Ingredientes("Cebola Roxa", 2.00);
+        ingredientes.inserirIngredientes(CebolaRoxa);
+        listarIngredientes();
+    }
 
     /**
      * @param args the command line arguments

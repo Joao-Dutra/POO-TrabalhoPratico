@@ -1,7 +1,5 @@
 package pizzaria.classes;
 
-import java.util.ArrayList;
-
 public class Pizzas {
     
     //atributos
@@ -54,7 +52,7 @@ public class Pizzas {
     }
 
     //construtores    
-    public Pizzas(String nome, int quantidade, String tamanho, boolean borda, ArrayList<Pizzas> listaPizzas) {
+    public Pizzas(String nome, int quantidade, String tamanho, boolean borda) {
         this.nome = nome;
         this.tamanho = tamanho;
         this.borda = borda;
@@ -62,12 +60,11 @@ public class Pizzas {
         this.inginseridos = new Ingredientes[7];
 
         calcularValorTotal();
-        listaPizzas.add(this);
     }
 
-    public Pizzas() {
-        this.nome = null;
-        this.valor = 0;
+    public Pizzas(String nome,double valor) {
+        this.nome = nome;
+        this.valor = valor;
         this.quantidade = 0;
         this.tamanho = null;
         this.borda = false;

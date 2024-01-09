@@ -1,7 +1,5 @@
 package pizzaria.classes;
 
-import java.util.ArrayList;
-
 public class Bebidas {
 
 
@@ -45,14 +43,13 @@ public class Bebidas {
     }
 
     //construtores
-    public Bebidas(String nome, double valor, String tamanho, int quantidade, ArrayList<Bebidas> listaBebidas) {
+    public Bebidas(String nome, double valor, String tamanho, int quantidade) {
         this.nome = nome;
         this.tamanho = tamanho;
         this.valor = 0;
         this.quantidade = quantidade;
 
         calcularValorTotal(valor);
-        listaBebidas.add(this);
     }
 
     public Bebidas() {
