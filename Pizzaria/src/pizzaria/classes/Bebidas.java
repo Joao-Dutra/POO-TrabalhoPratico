@@ -2,7 +2,6 @@ package pizzaria.classes;
 
 public class Bebidas {
 
-
     //atributos
     private String nome;
     private double valor;
@@ -43,10 +42,9 @@ public class Bebidas {
     }
 
     //construtores
-    public Bebidas(String nome, double valor, String tamanho, int quantidade) {
+    public Bebidas(String nome, String tamanho, int quantidade,double valor) {
         this.nome = nome;
         this.tamanho = tamanho;
-        this.valor = 0;
         this.quantidade = quantidade;
 
         calcularValorTotal(valor);
@@ -76,4 +74,7 @@ public class Bebidas {
         }
     }
 
+    public String toString() {
+        return this.nome;
+    }
 }

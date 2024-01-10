@@ -117,4 +117,9 @@ public class Pizzas {
         }
         System.out.println("Ingrediente nao adicionado: O limite de ingredientes foi atingido!");
     }
+    
+    public String toString(){
+        return this.nome;
+    }
+    
 }
