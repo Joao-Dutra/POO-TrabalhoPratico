@@ -6,8 +6,10 @@ package pizzaria.interfaces;
 
 import controller.ListaFuncionarios;
 import java.awt.Color;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pizzaria.classes.Barista;
@@ -584,14 +586,14 @@ public class interface_gerencia extends javax.swing.JFrame {
         nomeColunas.add("SalarioTotal");
 
         List<Object[]> dados = new ArrayList<>();
-
+        NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
         for (Funcionarios fun : funcionarios.getListaFuncionarios()) {
 
             List dadosCli = new ArrayList();
             dadosCli.add(fun.getNome());
             dadosCli.add(fun.getCargo());
-            dadosCli.add(fun.getSalario());
-            dadosCli.add(fun.calculoSalario());
+            dadosCli.add(formatador.format(fun.getSalario()));
+            dadosCli.add(formatador.format(fun.calculoSalario()));
 
             dados.add(dadosCli.toArray());
 

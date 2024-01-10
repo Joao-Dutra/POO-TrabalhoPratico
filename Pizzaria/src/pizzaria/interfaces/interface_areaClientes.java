@@ -7,8 +7,10 @@ package pizzaria.interfaces;
 import controller.ListaFuncionarios;
 import controller.ListaPedidos;
 import java.awt.Color;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pizzaria.classes.Barista;
@@ -613,7 +615,7 @@ public class interface_areaClientes extends javax.swing.JFrame {
             numPedido = Integer.parseInt(JOptionPane.showInputDialog("Informe o n° do Pedido!"));
 
             Bebidas b = new Bebidas(nomeBebida, tamanhoBebida, quantidadeBebida, valorBebida);
-       
+
             if (numPedido <= 0) {
                 throw new IllegalArgumentException("O número do pedido deve ser maior que zero ou diferente de nulo!");
             }
@@ -732,7 +734,7 @@ public class interface_areaClientes extends javax.swing.JFrame {
         nomeColunas.add("Valor Pedido");
 
         List<Object[]> dados = new ArrayList<>();
-
+        NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
         for (Pedidos pedidos : pedidos.getListaPedidos()) {
 
             List dadosCli = new ArrayList();
@@ -744,7 +746,7 @@ public class interface_areaClientes extends javax.swing.JFrame {
             dadosCli.add(pedidos.getBebidaPedidos());
             dadosCli.add(pedidos.getBebidaPedidos().getTamanho());
             dadosCli.add(pedidos.getBebidaPedidos().getQuantidade());
-            dadosCli.add(pedidos.getValorPedidos());
+            dadosCli.add(formatador.format(pedidos.getValorPedidos()));
 
             dados.add(dadosCli.toArray());
 
